@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/pantaki/static/css/main.5979c7a2.css",
+    "main.js": "/pantaki/static/js/main.078da7c7.js",
+    "static/js/787.174a0e6e.chunk.js": "/pantaki/static/js/787.174a0e6e.chunk.js",
+    "static/media/videohome.mp4": "/pantaki/static/media/videohome.d0d0b746c8e444a4f741.mp4",
+    "static/media/logo.svg": "/pantaki/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/pantaki/index.html",
+    "main.5979c7a2.css.map": "/pantaki/static/css/main.5979c7a2.css.map",
+    "main.078da7c7.js.map": "/pantaki/static/js/main.078da7c7.js.map",
+    "787.174a0e6e.chunk.js.map": "/pantaki/static/js/787.174a0e6e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5979c7a2.css",
+    "static/js/main.078da7c7.js"
+  ]
+}
