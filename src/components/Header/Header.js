@@ -10,7 +10,10 @@ const Header = (props) => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         {/* <Navbar.Brand href="#home">RealEsateApp</Navbar.Brand> */}
-        <NavLink to="/" className='navbar-brand'><img className='img-logo' src={logo} style={{ height: 60 }} /></NavLink>
+        <NavLink to="/" className='navbar-brand'>
+          RealEsate
+          {/* <img className='img-logo' src={logo} style={{ height: 60 }} /> */}
+          </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
