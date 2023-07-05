@@ -180,29 +180,29 @@ export default class User extends Component {
         { id: '4', name: 'task_done', text: 'extras 4', title: 'extras 4', className:"task_done"   },
       ],
       // shouldCopyOnOutsideDrop: false,
-      height: 0
+      height: 0,
+      height2: 0
     };
     
   }
-  toggle = () => this.setState({ scale: !this.state.scale })
+  
 
 
   state = {
     disabled: false
   };
   toggleDraggable = () => this.setState(prevState => ({ disabled: !prevState.disabled }));
-
+  toggleDraggable2 = () => this.setState(prevState => ({ disabled2: !prevState.disabled2 }));
 
 
   render = () => {
     // const [height, setHeight] = useState(0);
-    const { disabled } = this.state;
+    const { disabled, disabled2 } = this.state;
     // const [listTask, setListTask] = useState('task_data');
 
     const externalNodeType = 'yourNodeType';
     const { shouldCopyOnOutsideDrop } = this.state;
 
-    console.log(this.state);
     
 // const User = (props) => {
 
@@ -440,9 +440,11 @@ export default class User extends Component {
 
             </div>
 
-            <div className='documents-info-drap'>
-            <Draggable disabled={disabled} bounds="parent">
-              <div className={!disabled ? "draggable" : null}>
+            
+          </div>
+          <div className='documents-info-drap'>
+            <Draggable disabled={disabled2} bounds="parent">
+              <div className={!disabled2 ? "draggable" : null}>
                 
                 
                 <div className='documents-toggle'>
@@ -455,23 +457,23 @@ export default class User extends Component {
 
                   <div className='documents-toggle-content'>
                       <div className='documents-toggle-button'>
-                        <button className="btn btn-primary mb-5" onClick={this.toggleDraggable}>
-                          {disabled ? "Enable" : "Disable"} Drag
+                        <button className="btn btn-primary mb-5" onClick={this.toggleDraggable2}>
+                          {disabled2 ? "Enable" : "Disable"} Drag
                         </button>
                         <button
                           className='btn btn-primary mb-5'
-                          aria-expanded={this.state.height !== 0}
+                          aria-expanded={this.state.height2 !== 0}
                           aria-controls="example-panel"
-                          onClick={() => this.setState({height: this.state.height === 0 ? 'auto' : 0})}
+                          onClick={() => this.setState({height2: this.state.height2 === 0 ? 'auto' : 0})}
                         >
-                          {this.state.height === 0 ? 'Open' : 'Close'}
+                          {this.state.height2 === 0 ? 'Open' : 'Close'}
                         </button>
                       </div>
                       <div className='documents-toggle-data-main'>
                       <AnimateHeight
                       id="documents-panel"
                       duration={500}
-                      height={this.state.height} // see props documentation below
+                      height={this.state.height2} // see props documentation below
                     >
 
                       <div className='documents-toggle-main'>
@@ -589,9 +591,7 @@ export default class User extends Component {
                  
               </div>
             </Draggable>
-          </div>
-          </div>
-
+            </div>
           
         </div>
       </div>
