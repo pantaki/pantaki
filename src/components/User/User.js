@@ -130,7 +130,6 @@ export default class User extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { scale: null };
 
     this.state = {
       task_data1: [
@@ -225,12 +224,6 @@ export default class User extends Component {
                 
                 
                 <div className='user-toggle'>
-                  {/* <div className="content">
-                    <h2>🤟 Click on the circle to toggle animations 🤟</h2>
-                    <div id="circle" className={"circle-button " + this.renderClass(this.state.scale)}
-                      onClick={() => this.toggle()}
-                      >CLICK</div>
-                  </div> */}
 
                   <div className='user-toggle-content'>
                   
@@ -448,12 +441,6 @@ export default class User extends Component {
                 
                 
                 <div className='documents-toggle'>
-                  {/* <div className="content">
-                    <h2>🤟 Click on the circle to toggle animations 🤟</h2>
-                    <div id="circle" className={"circle-button " + this.renderClass(this.state.scale)}
-                      onClick={() => this.toggle()}
-                      >CLICK</div>
-                  </div> */}
 
                   <div className='documents-toggle-content'>
                       <div className='documents-toggle-button'>
