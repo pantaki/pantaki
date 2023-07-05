@@ -1,6 +1,7 @@
 {
   "name": "base-react-redux",
   "version": "0.1.0",
+  "homepage": "https://pantaki.github.io/pantaki/",
   "private": true,
   "dependencies": {
     "@nosferatu500/react-sortable-tree": "4.4.0",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "13.5.0",
     "bootstrap": "5.3.0",
     "drag-react": "1.1.1",
+    "gh-pages": "^5.0.0",
     "react": "18.2.0",
     "react-animate-height": "3.1.1",
     "react-beautiful-dnd": "13.1.1",
@@ -29,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

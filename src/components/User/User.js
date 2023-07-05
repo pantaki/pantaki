@@ -4,6 +4,7 @@ import '@nosferatu500/react-sortable-tree/style.css';
 // import { Draggable } from 'drag-react';
 import Draggable from 'react-draggable';
 import AnimateHeight from 'react-animate-height';
+import Form from 'react-bootstrap/Form';
 
 const task_item = [
   {
@@ -438,9 +439,8 @@ export default class User extends Component {
               }
 
             </div>
-          </div>
 
-          <div className='documents-info-drap'>
+            <div className='documents-info-drap'>
             <Draggable disabled={disabled} bounds="parent">
               <div className={!disabled ? "draggable" : null}>
                 
@@ -454,39 +454,132 @@ export default class User extends Component {
                   </div> */}
 
                   <div className='documents-toggle-content'>
-                  
-                    <AnimateHeight
-                      id="example-panel"
+                      <div className='documents-toggle-button'>
+                        <button className="btn btn-primary mb-5" onClick={this.toggleDraggable}>
+                          {disabled ? "Enable" : "Disable"} Drag
+                        </button>
+                        <button
+                          className='btn btn-primary mb-5'
+                          aria-expanded={this.state.height !== 0}
+                          aria-controls="example-panel"
+                          onClick={() => this.setState({height: this.state.height === 0 ? 'auto' : 0})}
+                        >
+                          {this.state.height === 0 ? 'Open' : 'Close'}
+                        </button>
+                      </div>
+                      <div className='documents-toggle-data-main'>
+                      <AnimateHeight
+                      id="documents-panel"
                       duration={500}
                       height={this.state.height} // see props documentation below
                     >
+
                       <div className='documents-toggle-main'>
-                        <div className='documents-list-add'>
-                        <div className='documents-list-card'>
-                          <div className='documents-type'><span>teste 1</span></div>
-                          <div className='documents-email'><span>teste 1@gmail.com</span></div>
-                          <div className='documents-phone'><span>123123 123</span></div>
-                              
-                        </div> 
-                                
-                          
-                      </div>
                         
+                        <div className='documents-list-left'>
+                          <h4>Share Selected</h4>
+
+                            <Form.Check // prettier-ignore
+                              type="checkbox"
+                              id="select-all-checkbox"
+                              label="Select All"
+                            />
+
+                            <Form.Check // prettier-ignore
+                              type="checkbox"
+                              id="kq-office-policy-checkbox"
+                              label="KW Office policy"
+                            />
+                            <Form.Check // prettier-ignore
+                              type="checkbox"
+                              id="baa-checkbox"
+                              label="BAA"
+                            />
+
+                            <Form.Check
+                              disabled
+                              type="checkbox"
+                              id="disabled-pa-checkbox"
+                              label="PA"
+                            />
+
+                          {/* <Form>
+                            {['checkbox'].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check // prettier-ignore
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`default ${type}`}
+                                />
+
+                                <Form.Check
+                                  disabled
+                                  type={type}
+                                  label={`disabled ${type}`}
+                                  id={`disabled-default-${type}`}
+                                />
+                              </div>
+                            ))}
+                          </Form>   */}
+                          
+                        </div>
+                        <div className='documents-list-right'>
+                            <div className='documents-row-title'>
+                              <span className='documents-row-name'>B1</span>
+                              <span className='documents-row-name'>B2</span>
+                              <span className='documents-row-name'>LA</span>
+                              <span className='documents-row-name'>F1</span>
+                              <span className='documents-row-name'>F2</span>
+                              <span className='documents-row-name'>TI</span>
+                              <span className='documents-row-name'>KW</span>
+                              <span className='documents-row-name'>TG</span>
+                            </div>
+                            <div className='documents-row-content'>
+                              <span className='documents-row-data green'></span>
+                              <span className='documents-row-data green'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                            </div>
+                            <div className='documents-row-content'>
+                              <span className='documents-row-data green'>S</span>
+                              <span className='documents-row-data green'></span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                            </div>
+                            <div className='documents-row-content'>
+                              <span className='documents-row-data green'></span>
+                              <span className='documents-row-data green'></span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                            </div>
+                            <div className='documents-row-content'>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'>S</span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                              <span className='documents-row-data'></span>
+                            </div>
+                        </div>
                       </div>
                     </AnimateHeight>
-                    <div className='documents-toggle-button'>
-                      <button className="btn btn-primary mb-5" onClick={this.toggleDraggable}>
-                        {disabled ? "Enable" : "Disable"} Drag
-                      </button>
-                      <button
-                        className='btn btn-primary mb-5'
-                        aria-expanded={this.state.height !== 0}
-                        aria-controls="example-panel"
-                        onClick={() => this.setState({height: this.state.height === 0 ? 'auto' : 0})}
-                      >
-                        {this.state.height === 0 ? 'Open' : 'Close'}
-                      </button>
-                    </div>
+                      </div>
+                    
+                    
                     
                   </div>
                   
@@ -497,6 +590,9 @@ export default class User extends Component {
               </div>
             </Draggable>
           </div>
+          </div>
+
+          
         </div>
       </div>
     </div>

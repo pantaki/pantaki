@@ -477,7 +477,7 @@ h4.inspection {
 }
 
 .user-info-drap {
-  height: calc(55vh - 50px);
+  height: calc(40vh - 50px);
   position: absolute;
   z-index: 20;
   width: 75%;
@@ -546,4 +546,89 @@ h4.inspection {
   cursor: pointer;
   transform: scale(1.5);
   color: white;
+}
+
+// drapping botton documents
+
+.documents-toggle-content {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.documents-toggle-button{
+  margin: auto;
+  height: 90px;
+  padding: 20px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 1px -5px 9px #ddd;
+  width: 15%;
+}
+
+.documents-toggle-button > button {
+  margin-bottom: 0!important;
+  margin-right: 5px;
+}
+
+.documents-toggle-main {
+  display: flex;
+  width: 35%;
+  justify-content: space-around;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0px 5px 9px #ddd;
+  border-radius: 10px;
+
+  .documents-list-left {
+    font-size: 15px;
+    text-align: start;
+    
+  }
+  .documents-list-left > h4 {
+    font-size: 15px;
+    color: green;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .documents-list-right {
+    display: grid;
+    width: 45%;
+
+    .documents-row-title {
+      display: flex;
+      justify-content: space-between;
+
+      .documents-row-name {
+        padding: 5px;
+        font-size: 14px;
+        color: #626262;
+        font-weight: 500;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .documents-row-content {
+      display: flex;
+      justify-content: space-between;
+
+      .documents-row-data {
+        padding: 5px;
+        width: 20px;
+        height: 20px;
+        background: #dddddd9c;
+        font-size: 11px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .green {
+        background: #05bf05b5;
+        color: #fff;
+      }
+    }
+  }
 }
