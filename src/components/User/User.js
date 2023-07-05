@@ -210,23 +210,15 @@ export default class User extends Component {
       <div className='user-content'>
         <div className='user-item'>
           <div className='item-title'>
-
             <h5>(B) T&N Lorem orem Ipsum </h5>
-
             <span className='item-title-number'>10</span>
-
-
           </div>
 
           <div className='user-info-drap'>
             <Draggable disabled={disabled} bounds="parent">
               <div className={!disabled ? "draggable" : null}>
-                
-                
                 <div className='user-toggle'>
-
                   <div className='user-toggle-content'>
-                  
                     <AnimateHeight
                       id="example-panel"
                       duration={500}
@@ -254,10 +246,8 @@ export default class User extends Component {
                           
                           <div className='user-list-card-new'>
                             <span className='user-list-new'>+ Person</span>
-                          </div>                  
-                          
+                          </div>                      
                         </div>
-                        
                       </div>
                     </AnimateHeight>
                     <div className='user-toggle-button'>
@@ -273,13 +263,8 @@ export default class User extends Component {
                         {this.state.height === 0 ? 'Open' : 'Close'}
                       </button>
                     </div>
-                    
                   </div>
-                  
-                  
                 </div>
-
-                 
               </div>
             </Draggable>
           </div>
@@ -288,8 +273,6 @@ export default class User extends Component {
             <div className='item-list'>
               {task_item.map((task_card, i ) => {
                 return (
-
-                  
                     <div className='item-card'>
                       <div className='item-card-header'>
                         <span className='item-card-title'>{task_card.name}</span>
@@ -300,14 +283,11 @@ export default class User extends Component {
                               <div className='item-task' >
                                 <span className={task_item1.name}></span>
                               </div>
-
                             )
-
                           })}
-                      
-
                         </div>
                       </div>
+
                       <div className='item-card-table'>
                         <h3 className='table-title'>{task_card.name}</h3>
                         <div className='table-content'>
@@ -438,10 +418,7 @@ export default class User extends Component {
           <div className='documents-info-drap'>
             <Draggable disabled={disabled2} bounds="parent">
               <div className={!disabled2 ? "draggable" : null}>
-                
-                
                 <div className='documents-toggle'>
-
                   <div className='documents-toggle-content'>
                       <div className='documents-toggle-button'>
                         <button className="btn btn-primary mb-5" onClick={this.toggleDraggable2}>
@@ -464,10 +441,8 @@ export default class User extends Component {
                     >
 
                       <div className='documents-toggle-main'>
-                        
                         <div className='documents-list-left'>
                           <h4>Share Selected</h4>
-
                             <Form.Check // prettier-ignore
                               type="checkbox"
                               id="select-all-checkbox"
@@ -512,6 +487,7 @@ export default class User extends Component {
                           </Form>   */}
                           
                         </div>
+                        
                         <div className='documents-list-right'>
                             <div className='documents-row-title'>
                               <span className='documents-row-name'>B1</span>
@@ -582,7 +558,10 @@ export default class User extends Component {
           
         </div>
       </div>
+
+
     </div>
+    
   );
 // }
 // export default User;

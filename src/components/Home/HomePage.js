@@ -1,6 +1,7 @@
 import videoHomepage from '../../assets/videohome.mp4';
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
 
 const finalSpaceCharacters = [
     {
@@ -197,7 +198,40 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                                     {task_card.task_data.map((task_item) => {
                                         return (
                                             <div className='item-task' >
-                                                <span className={task_item.name}></span>
+                                                <div className={task_item.name}>
+                                                    <div class="add">
+                                                        <a href="/">
+                                                            <MdAccountCircle />
+                                                            {/* <svg> */}
+                                                                {/* <use xlink:href="#fileIcon"> */}
+                                                            {/* </svg> */}
+                                                        </a>
+                                                        <a href="/admin">
+                                                            
+                                                            <MdCalendarMonth />
+                                                            
+                                                            
+                                                            {/* <svg> */}
+                                                                {/* <use xlink:href="#imageIcon"> */}
+                                                            {/* </svg> */}
+                                                        </a>
+                                                        <a href="">
+                                                        
+                                                            <MdAndroid />
+                                                            {/* <svg> */}
+                                                                {/* <use xlink:href="#mailIcon"> */}
+                                                            {/* </svg> */}
+                                                        </a>
+                                                        <a href="">
+                                                            <MdFlutterDash />
+                                                            {/* <svg> */}
+                                                                {/* <use xlink:href="#chatIcon"> */}
+                                                            {/* </svg> */}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                
+                                                {/* <span className={task_item.name}></span> */}
                                             </div>
                                         )
                                         
@@ -217,6 +251,7 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }
