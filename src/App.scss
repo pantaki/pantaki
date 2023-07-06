@@ -161,7 +161,7 @@ h4.inspection {
       border: 2px solid #eee;
 
       .item-note {
-        padding: 20px;
+        padding-top: 10px;
         display: flex;
         justify-content: space-around;
         background: #fff;
@@ -186,14 +186,14 @@ h4.inspection {
         grid-gap: 0.5rem;
 
         .item-card {
-          padding: 0.5rem;
+          // padding: 0.5rem;
           border-radius: 5px;
           background: #cccccc4f;
           text-align: center;
-          min-height: 250px;
+          // min-height: 250px;
 
           .item-card-title {
-            font-size: 20px;
+            font-size: 15px;
             margin: 10px 0;
             display: inline-block;
             text-transform: uppercase;
@@ -201,10 +201,12 @@ h4.inspection {
           }
           .item-card-content {
             display: grid;
-            grid-template-columns: repeat(5, 0.1fr);
+            grid-template-columns: repeat(5, 1fr);
             grid-auto-rows: auto;
-            grid-gap: 0.3rem;
+            grid-gap: 0.1rem;
             padding: 10px;
+            justify-content: flex-start;
+            margin-top: 10px;
 
             .item-task > span {
               width: 30px;
@@ -216,11 +218,9 @@ h4.inspection {
               opacity: 0.6;
             }
             .item-task {
-              // width: 50px;
-              // height: 50px;
-              // display: flex;
-              // justify-content: center;
-              // align-items: center;
+              height: 25px;
+              transition: 0.5s;
+
               .task_done {
                 background: $task_done ;
                 
@@ -632,7 +632,7 @@ h4.inspection {
 
 // homepage effects test
 .item-task {
-  height: 70px;
+  height: 55px;
   transition: 0.5s;
   .homepage-effects {
     display: flex;
@@ -649,26 +649,20 @@ h4.inspection {
       flex-direction: column;
       gap: 0;
       transition: 0.5s;
+      padding-left: 5px;
       
 
       li {
         position: relative;
         list-style: none;
-        width: 45px;
-        height: 45px;
-        padding: 15px;
-        // background: #dbdbdb;
-        background: #28bb42;
-        gap: 20px;
+        width: 20px;
+        height: 20px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        border-radius: 6px;
-        // box-shadow: 0 -15px 25px rgba(0,0,0,0.25);
-        box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.25);
         transition: 0.3s;
         transition-delay: calc(var(--i) * 0.05s);
-
+        font-size: 10px;
        
       }
 
@@ -678,7 +672,9 @@ h4.inspection {
         // opacity: 0.6;
         // background: #28bb42;
 
-        transform: translateX(4px) translateZ(0px) translateY(31px);
+        
+        // transform: translateX(-3px) translateZ(0) translateY(29px);
+        transform: translateX(-7px) translateZ(-300px) translateY(-37px);
         opacity: 0.6;
         background: #1d00f7;
       }
@@ -687,7 +683,9 @@ h4.inspection {
         // background: #eee;
         // background: #28bb42;
 
-        transform: translateX(4px) translateZ(0px) translateY(-15px);
+    
+        // transform: translateX(-3px) translateZ(0) translateY(-16px);
+        transform: translateX(-8px) translateZ(-300px) translateY(-58px);
         background: #ffed00;
       }
       li:nth-child(3) {
@@ -696,7 +694,9 @@ h4.inspection {
         // transform: translateZ(75px) translateY(15px);
         // background: #28bb42;
 
-        transform: translateX(4px) translateZ(0px) translateY(-61px);
+        
+        // transform: translateX(-3px) translateZ(0px) translateY(-61px);
+        transform: translateX(-8px) translateZ(-300px) translateY(-77px);
         background: #e52016;
       }
       li:nth-child(4) {
@@ -704,7 +704,9 @@ h4.inspection {
         // background: #fff;
         // background: #28bb42;
         
-        transform: translateZ(130px) translateY(-100px);
+        
+        // transform: translateX(-3px) translateZ(130px) translateY(-100px);
+        transform: translateX(-5px) translateZ(60px) translateY(-75px);
         background: #01b10a;
       }
 
@@ -714,19 +716,18 @@ h4.inspection {
       }
     }
     ul:hover {
-      gap: 10px;
+      gap: 5px;
       z-index: 50;
       
     }
     ul:hover li:nth-child(1), ul:hover li:nth-child(2), ul:hover li:nth-child(3) {
       opacity: 1;
       background: #28bb42cc;
-      // transform: translateX(0px) translateZ(0px) translateY(0px);
-      transform: translateX(0px) translateZ(0px) translateY(-80px);
+      transform: translateX(-5px) translateZ(0px) translateY(-68px);
     }
     ul:hover li:nth-child(4) {
       // transform: translateZ(-40px) translateY(-109px);
-      transform: translateZ(-80px) translateY(-140px);
+      transform: translateX(-8px) translateZ(-380px) translateY(-120px);
      
     }
     
