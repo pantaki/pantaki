@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import SortableTree from '@nosferatu500/react-sortable-tree';
 import '@nosferatu500/react-sortable-tree/style.css';
+import { MdSettings, MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
 
 import test1 from '../../assets/images/test1.jpeg';
 import test2 from '../../assets/images/test2.jpeg';
 import test3 from '../../assets/images/test3.jpeg';
+import test4 from '../../assets/images/test1.jpeg';
 
 // const Admin = (props) => {
 //     return (
@@ -36,20 +38,35 @@ export default class Admin extends Component {
       return (
         <div>
             
-            <div className='homepage-effects'>
+            <div className='homepage-effects1'>
                 <ul>
-                    <li style={{'--i':1}}>
-                        
-                       
+                    <li>
+                        <img src={test1} />
+                        <div className='content'>
+                            <h4>test 1</h4>
+                            <p>test photo. <br /> <span> test day</span></p>
+                        </div>
                     </li>
-                    <li style={{'--i':2}}>
-                       
+                    <li>
+                        <img src={test2} />
+                        <div className='content'>
+                            <h4>test 2</h4>
+                            <p>test photo 2. <br /> <span> test day</span></p>
+                        </div>
                     </li>
-                    <li style={{'--i':3}}>
-                        
+                    <li>
+                        <img src={test3} />
+                        <div className='content'>
+                            <h4>test 3</h4>
+                            <p>test photo 3. <br /> <span> test day</span></p>
+                        </div>
                     </li>
-                    <li style={{'--i':4}}>
-                        
+                    <li>
+                        <img src={test4} />
+                        <div className='content'>
+                            <h4>test 4</h4>
+                            <p>test photo 4. <br /> <span> test day</span></p>
+                        </div>
                     </li>
                 </ul>
             </div>

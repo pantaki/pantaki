@@ -3,7 +3,7 @@ import test2 from '../../assets/images/test2.jpeg';
 import test3 from '../../assets/images/test3.jpeg';
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
+import { MdSettings, MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
 
 const finalSpaceCharacters = [
     {
@@ -197,38 +197,26 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                                     {task_card.task_data.map((task_item) => {
                                         return (
                                             <div className='item-task' >
-                                                <div className={task_item.name}>
-                                                    {/* <div class="add"> */}
-                                                        <a href="/">
-                                                            <MdAccountCircle />
-                                                            {/* <svg> */}
-                                                                {/* <use xlink:href="#fileIcon"> */}
-                                                            {/* </svg> */}
-                                                        </a>
-                                                        <a href="/admin">
-                                                            
-                                                            <MdCalendarMonth />
-                                                            
-                                                            
-                                                            {/* <svg> */}
-                                                                {/* <use xlink:href="#imageIcon"> */}
-                                                            {/* </svg> */}
-                                                        </a>
-                                                        <a href="">
-                                                        
-                                                            <MdAndroid />
-                                                            {/* <svg> */}
-                                                                {/* <use xlink:href="#mailIcon"> */}
-                                                            {/* </svg> */}
-                                                        </a>
-                                                        <a href="">
-                                                            <MdFlutterDash />
-                                                            {/* <svg> */}
-                                                                {/* <use xlink:href="#chatIcon"> */}
-                                                            {/* </svg> */}
-                                                        </a>
-                                                    {/* </div> */}
+                                                
+                                                    
+                                                
+                                                <div className='homepage-effects'>
+                                                    <ul>
+                                                        <li className={task_item.name} style={{'--i':1}}>
+                                                        <MdAccountCircle />
+                                                        </li>
+                                                        <li className={task_item.name} style={{'--i':2}}>
+                                                        <MdCalendarMonth />
+                                                        </li>
+                                                        <li className={task_item.name} style={{'--i':3}}>
+                                                        <MdAndroid />
+                                                        </li>
+                                                        <li className={task_item.name} style={{'--i':4}}>
+                                                        <MdSettings />
+                                                        </li>
+                                                    </ul>
                                                 </div>
+                                               
                                                 
                                                 {/* <span className={task_item.name}></span> */}
                                             </div>
@@ -251,38 +239,7 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                 </div>
             </div>
 
-            <div className='homepage-effects'>
-                <ul>
-                    <li>
-                        {/* <img src={test1} />
-                        <div className='content'>
-                            <h4>test 1</h4>
-                            <p>test photo. <br /> <span> test day</span></p>
-                        </div> */}
-                    </li>
-                    <li>
-                        {/* <img src={test2} />
-                        <div className='content'>
-                            <h4>test 2</h4>
-                            <p>test photo 2. <br /> <span> test day</span></p>
-                        </div> */}
-                    </li>
-                    <li>
-                        {/* <img src={test3} />
-                        <div className='content'>
-                            <h4>test 3</h4>
-                            <p>test photo 3. <br /> <span> test day</span></p>
-                        </div> */}
-                    </li>
-                    <li>
-                        {/* <img src={test1} />
-                        <div className='content'>
-                            <h4>test 4</h4>
-                            <p>test photo 4. <br /> <span> test day</span></p>
-                        </div> */}
-                    </li>
-                </ul>
-            </div>
+            
             
         </div>
     )
