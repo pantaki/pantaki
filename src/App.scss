@@ -662,38 +662,10 @@ h4.inspection {
         border-radius: 6px;
         // box-shadow: 0 -15px 25px rgba(0,0,0,0.25);
         box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.25);
-        transition: 0.5s;
+        transition: 0.3s;
         transition-delay: calc(var(--i) * 0.05s);
 
-        // img {
-        //   max-width: 70px;
-        //   border-radius: 4px;
-        // }
-
-        // .content {
-        //   width: 100%;
-        //   cursor: pointer;
-
-        //   h4 {
-        //     font-weight: 600;
-        //     color:#333;
-        //   }
-
-        //   p {
-        //     position: relative;
-        //     color: #333;
-        //     line-height: 1em;
-        //     width: 100%;
-
-        //     span {
-        //       position: absolute;
-        //       top: 0;
-        //       right: 0;
-        //       font-size: 0.75em;
-        //       color: #888;
-        //     }
-        //   }
-        // }
+       
       }
 
       li:nth-child(1) {
