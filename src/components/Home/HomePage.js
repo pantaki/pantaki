@@ -212,7 +212,7 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                                                         <MdAndroid />
                                                         </li>
                                                         <li className={task_item.name} style={{'--i':4}}>
-                                                        <MdSettings />
+                                                        {/* <MdSettings /> */}
                                                         </li>
                                                     </ul>
                                                 </div>
