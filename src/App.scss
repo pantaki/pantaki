@@ -16,6 +16,10 @@ body {
       max-width: 1300px!important;
   }
 }
+$task_done : #01b10a;
+$task_note : #d10101;
+$task_waiting : #f5c916;
+$task_grey : #ababab;
 
 .app-container {
   .header-container {
@@ -218,16 +222,16 @@ h4.inspection {
               // justify-content: center;
               // align-items: center;
               .task_done {
-                background: #2be32b;
+                background: $task_done ;
                 
               }
               .task_note {
-                background: #ff5353;
+                background: $task_note;
                 
               }
               .task_waiting {
-                background: #eded15;
-                
+                background: $task_waiting;
+
               }
             }
           }
@@ -699,9 +703,9 @@ h4.inspection {
         // transform: translateZ(150px) translateY(-75px);
         // background: #fff;
         // background: #28bb42;
-
+        
         transform: translateZ(130px) translateY(-100px);
-        background: #28bb42;
+        background: #01b10a;
       }
 
       li:hover {
@@ -717,12 +721,13 @@ h4.inspection {
     ul:hover li:nth-child(1), ul:hover li:nth-child(2), ul:hover li:nth-child(3) {
       opacity: 1;
       background: #28bb42cc;
-      transform: translateX(0px) translateZ(0px) translateY(0px);
+      // transform: translateX(0px) translateZ(0px) translateY(0px);
+      transform: translateX(0px) translateZ(0px) translateY(-80px);
     }
     ul:hover li:nth-child(4) {
-      transform: translateZ(-40px) translateY(-109px);
-      // display: none;
-      // transform: translateX(0px) translateZ(0px) translateY(0px);
+      // transform: translateZ(-40px) translateY(-109px);
+      transform: translateZ(-80px) translateY(-140px);
+     
     }
     
   }
