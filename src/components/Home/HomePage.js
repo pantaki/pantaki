@@ -1,4 +1,6 @@
-import videoHomepage from '../../assets/videohome.mp4';
+import test1 from '../../assets/images/test1.jpeg';
+import test2 from '../../assets/images/test2.jpeg';
+import test3 from '../../assets/images/test3.jpeg';
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
@@ -164,11 +166,8 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                 <div className='homepage-item'>
                     <div className='item-title'>
                         
-                            <h5>(B) T&N Lorem orem Ipsum </h5>
-                       
-                            <span className='item-title-number'>10</span>
-                       
-                        
+                        <h5>(B) T&N Lorem orem Ipsum </h5>
+                        <span className='item-title-number'>10</span>
                     </div>
                     <div className='item-content'>
                         <div className='item-note'>
@@ -199,7 +198,7 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                                         return (
                                             <div className='item-task' >
                                                 <div className={task_item.name}>
-                                                    <div class="add">
+                                                    {/* <div class="add"> */}
                                                         <a href="/">
                                                             <MdAccountCircle />
                                                             {/* <svg> */}
@@ -228,7 +227,7 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                                                                 {/* <use xlink:href="#chatIcon"> */}
                                                             {/* </svg> */}
                                                         </a>
-                                                    </div>
+                                                    {/* </div> */}
                                                 </div>
                                                 
                                                 {/* <span className={task_item.name}></span> */}
@@ -250,6 +249,39 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
 
                     </div>
                 </div>
+            </div>
+
+            <div className='homepage-effects'>
+                <ul>
+                    <li>
+                        {/* <img src={test1} />
+                        <div className='content'>
+                            <h4>test 1</h4>
+                            <p>test photo. <br /> <span> test day</span></p>
+                        </div> */}
+                    </li>
+                    <li>
+                        {/* <img src={test2} />
+                        <div className='content'>
+                            <h4>test 2</h4>
+                            <p>test photo 2. <br /> <span> test day</span></p>
+                        </div> */}
+                    </li>
+                    <li>
+                        {/* <img src={test3} />
+                        <div className='content'>
+                            <h4>test 3</h4>
+                            <p>test photo 3. <br /> <span> test day</span></p>
+                        </div> */}
+                    </li>
+                    <li>
+                        {/* <img src={test1} />
+                        <div className='content'>
+                            <h4>test 4</h4>
+                            <p>test photo 4. <br /> <span> test day</span></p>
+                        </div> */}
+                    </li>
+                </ul>
             </div>
             
         </div>

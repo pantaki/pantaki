@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import SortableTree from '@nosferatu500/react-sortable-tree';
 import '@nosferatu500/react-sortable-tree/style.css';
 
+import test1 from '../../assets/images/test1.jpeg';
+import test2 from '../../assets/images/test2.jpeg';
+import test3 from '../../assets/images/test3.jpeg';
+
 // const Admin = (props) => {
 //     return (
 //         <div>Admin components</div>
@@ -32,57 +36,23 @@ export default class Admin extends Component {
       return (
         <div>
             
-          <div
-            style={{
-              height: 350,
-              width: 350,
-              float: 'left',
-              border: 'solid black 1px',
-            }}
-          >
-            <h4 className='inspection'>Inspection 1</h4>
-            <SortableTree
-              treeData={this.state.treeData1}
-              onChange={treeData1 => this.setState({ treeData1 })}
-              dndType={externalNodeType}
-              // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-            />
-          </div>
-  
-          <div
-            style={{
-              height: 350,
-              width: 350,
-              float: 'left',
-              border: 'solid black 1px',
-            }}
-          >
-            <h4 className='inspection'>Inspection 2</h4>
-            <SortableTree
-              treeData={this.state.treeData2}
-              onChange={treeData2 => this.setState({ treeData2 })}
-              dndType={externalNodeType}
-              shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-            />
-          </div>
-  
-          <div style={{ clear: 'both' }} />
-  
-          <div>
-            <label htmlFor="should-copy" style={{ fontSize: '0.8rem' }}>
-              
-              <input
-                type="checkbox"
-                id="should-copy"
-                value={shouldCopyOnOutsideDrop}
-                onChange={event =>
-                  this.setState({
-                    shouldCopyOnOutsideDrop: event.target.checked,
-                  })
-                }
-              />
-            </label>
-          </div>
+            <div className='homepage-effects'>
+                <ul>
+                    <li style={{'--i':1}}>
+                        
+                       
+                    </li>
+                    <li style={{'--i':2}}>
+                       
+                    </li>
+                    <li style={{'--i':3}}>
+                        
+                    </li>
+                    <li style={{'--i':4}}>
+                        
+                    </li>
+                </ul>
+            </div>
         </div>
       );
     }
