@@ -5,18 +5,19 @@ import '@nosferatu500/react-sortable-tree/style.css';
 import Draggable from 'react-draggable';
 import AnimateHeight from 'react-animate-height';
 import Form from 'react-bootstrap/Form';
+import { MdSettings, MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
 
 const task_item = [
   {
     id: '1',
     name: 'offer / em',
     task_data: [
-      { id: '1', name: 'task_done', text: 'offer / em 1', title: 'offer / em 1', className:"task_done" },
-      { id: '2', name: 'task_done', text: 'offer / em 2', title: 'offer / em 2', className:"task_done" },
-      { id: '3', name: 'task_done', text: 'offer / em 3', title: 'offer / em 3', className:"task_done" },
-      { id: '4', name: 'task_done', text: 'offer / em 4', title: 'offer / em 4', className:"task_done" },
-      { id: '5', name: 'task_done', text: 'offer / em 5', title: 'offer / em 5', className:"task_done" },
-      { id: '6', name: 'task_waiting', text: 'offer / em 6', title: 'offer / em 6', className:"task_waiting" },
+      { id: '1', name: 'task_done', text: 'offer / em 1', title: 'offer / em 1', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey" },
+      { id: '2', name: 'task_done', text: 'offer / em 2', title: 'offer / em 2', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey" },
+      { id: '3', name: 'task_done', text: 'offer / em 3', title: 'offer / em 3', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey" },
+      { id: '4', name: 'task_done', text: 'offer / em 4', title: 'offer / em 4', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey" },
+      { id: '5', name: 'task_done', text: 'offer / em 5', title: 'offer / em 5', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey" },
+      { id: '6', name: 'task_waiting', text: 'offer / em 6', title: 'offer / em 6', className:"task_waiting", className2:"task_done", className3:"task_note", className4:"task_grey" },
 
     ],
   },
@@ -24,13 +25,13 @@ const task_item = [
     id: '2',
     name: 'inspection',
     task_data: [
-      { id: '1', name: 'task_waiting', text: 'inspection 1', title: 'inspection 1', className:"task_waiting" },
-      { id: '2', name: 'task_done', text: 'inspection 2', title: 'inspection 2', className:"task_done"  },
-      { id: '3', name: 'task_done', text: 'inspection 3', title: 'inspection 3', className:"task_done"  },
-      { id: '4', name: 'task_done', text: 'inspection 4', title: 'inspection 4', className:"task_done"  },
-      { id: '5', name: 'task_done', text: 'inspection 5', title: 'inspection 5', className:"task_done"  },
-      { id: '6', name: 'task_done', text: 'inspection 6', title: 'inspection 6', className:"task_done"  },
-      { id: '7', name: 'task_done', text: 'inspection 7', title: 'inspection 7', className:"task_done"  },
+      { id: '1', name: 'task_waiting', text: 'inspection 1', title: 'inspection 1', className:"task_waiting", className2:"task_done", className3:"task_note", className4:"task_grey" },
+      { id: '2', name: 'task_done', text: 'inspection 2', title: 'inspection 2', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '3', name: 'task_done', text: 'inspection 3', title: 'inspection 3', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '4', name: 'task_done', text: 'inspection 4', title: 'inspection 4', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '5', name: 'task_done', text: 'inspection 5', title: 'inspection 5', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '6', name: 'task_done', text: 'inspection 6', title: 'inspection 6', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '7', name: 'task_done', text: 'inspection 7', title: 'inspection 7', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
 
     ],
   },
@@ -38,43 +39,43 @@ const task_item = [
     id: '3',
     name: 'financing',
     task_data: [
-      { id: '1', name: 'task_done', text: 'financing 1', title: 'financing 1', className:"task_done"  },
-      { id: '2', name: 'task_done', text: 'financing 2', title: 'financing 2', className:"task_done"  },
-      { id: '3', name: 'task_done', text: 'financing 3', title: 'financing 3', className:"task_done"  },
-      { id: '4', name: 'task_note', text: 'financing 4', title: 'financing 4', className:"task_note"  },
-      { id: '5', name: 'task_note', text: 'financing 5', title: 'financing 5', className:"task_note"  },
+      { id: '1', name: 'task_done', text: 'financing 1', title: 'financing 1', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '2', name: 'task_done', text: 'financing 2', title: 'financing 2', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '3', name: 'task_done', text: 'financing 3', title: 'financing 3', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '4', name: 'task_note', text: 'financing 4', title: 'financing 4', className:"task_note", className2:"task_done", className3:"task_waiting", className4:"task_grey"  },
+      { id: '5', name: 'task_note', text: 'financing 5', title: 'financing 5', className:"task_note", className2:"task_done", className3:"task_waiting", className4:"task_grey"  },
     ],
   },
   {
     id: '4',
     name: 'title work',
     task_data: [
-      { id: '1', name: 'task_done', text: 'title work 1', title: 'title work 1', className:"task_done"  },
-      { id: '2', name: 'task_done', text: 'title work 2', title: 'title work 2', className:"task_done"  },
-      { id: '3', name: 'task_done', text: 'title work 3', title: 'title work 3', className:"task_done"  },
-      { id: '4', name: 'task_done', text: 'title work 4', title: 'title work 4', className:"task_done"  },
-      { id: '5', name: 'task_note', text: 'title work 5', title: 'title work 5', className:"task_note"  },
-      { id: '6', name: 'task_waiting', text: 'title work 6', title: 'title work 6', className:"task_waiting"  },
+      { id: '1', name: 'task_done', text: 'title work 1', title: 'title work 1', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '2', name: 'task_done', text: 'title work 2', title: 'title work 2', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '3', name: 'task_done', text: 'title work 3', title: 'title work 3', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '4', name: 'task_done', text: 'title work 4', title: 'title work 4', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '5', name: 'task_note', text: 'title work 5', title: 'title work 5', className:"task_note", className2:"task_done", className3:"task_waiting", className4:"task_grey"  },
+      { id: '6', name: 'task_waiting', text: 'title work 6', title: 'title work 6', className:"task_waiting", className2:"task_done", className3:"task_note", className4:"task_grey" },
     ],
   },
   {
     id: '5',
     name: 'closing',
     task_data: [
-      { id: '1', name: 'task_done', text: 'closing 1', title: 'closing 1', className:"task_done"  },
-      { id: '2', name: 'task_done', text: 'closing 21', title: 'closing 2', className:"task_done"  },
-      { id: '3', name: 'task_note', text: 'closing 3', title: 'closing 3', className:"task_note"  },
-      { id: '4', name: 'task_waiting', text: 'closing 4', title: 'closing 4', className:"task_waiting"  },
+      { id: '1', name: 'task_done', text: 'closing 1', title: 'closing 1', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '2', name: 'task_done', text: 'closing 21', title: 'closing 2', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"  },
+      { id: '3', name: 'task_note', text: 'closing 3', title: 'closing 3', className:"task_note", className2:"task_done", className3:"task_waiting", className4:"task_grey"  },
+      { id: '4', name: 'task_waiting', text: 'closing 4', title: 'closing 4', className:"task_waiting", className2:"task_done", className3:"task_note", className4:"task_grey"  },
     ],
   },
   {
     id: '6',
     name: 'extras',
     task_data: [
-      { id: '1', name: 'task_done', text: 'extras 1', title: 'extras 1', className:"task_done"   },
-      { id: '2', name: 'task_done', text: 'extras 2', title: 'extras 2', className:"task_done"   },
-      { id: '3', name: 'task_done', text: 'extras 3', title: 'extras 3', className:"task_done"   },
-      { id: '4', name: 'task_done', text: 'extras 4', title: 'extras 6', className:"task_done"   },
+      { id: '1', name: 'task_done', text: 'extras 1', title: 'extras 1', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"   },
+      { id: '2', name: 'task_done', text: 'extras 2', title: 'extras 2', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"   },
+      { id: '3', name: 'task_done', text: 'extras 3', title: 'extras 3', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"   },
+      { id: '4', name: 'task_done', text: 'extras 4', title: 'extras 6', className:"task_done", className2:"task_note", className3:"task_waiting", className4:"task_grey"   },
     ],
   },
 ];
@@ -280,9 +281,28 @@ export default class User extends Component {
                           {/* <span className='item-task'>{task_card.name}</span> */}
                           {task_card.task_data.map((task_item1, index) => {
                             return (
-                              <div className='item-task' >
-                                <span className={task_item1.name}></span>
-                              </div>
+
+                              <div className='user-effects'>
+                                  <ul>
+                                      <li className={task_item1.className2} style={{'--i':1}}>
+                                          <MdAccountCircle />
+                                      </li>
+                                      <li className={task_item1.className3} style={{'--i':2}}>
+                                          <MdCalendarMonth />
+                                      </li>
+                                      <li className={task_item1.className4} style={{'--i':3}}>
+                                          <MdAndroid />
+                                      </li>
+                                      <li className={task_item1.className} style={{'--i':4}}>
+                                      {/* <MdSettings /> */}
+                                      </li>
+                                  </ul>
+                                </div>
+                              
+
+                              // <div className='item-task' >
+                              //   <span className={task_item1.name}></span>
+                              // </div>
                             )
                           })}
                         </div>

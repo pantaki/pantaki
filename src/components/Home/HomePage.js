@@ -203,13 +203,13 @@ const [characters, updateCharacters] = useState(finalSpaceCharacters);
                                                 <div className='homepage-effects'>
                                                     <ul>
                                                         <li className={task_item.name} style={{'--i':1}}>
-                                                        <MdAccountCircle />
+                                                            <MdAccountCircle />
                                                         </li>
                                                         <li className={task_item.name} style={{'--i':2}}>
-                                                        <MdCalendarMonth />
+                                                            <MdCalendarMonth />
                                                         </li>
                                                         <li className={task_item.name} style={{'--i':3}}>
-                                                        <MdAndroid />
+                                                            <MdAndroid />
                                                         </li>
                                                         <li className={task_item.name} style={{'--i':4}}>
                                                         {/* <MdSettings /> */}
