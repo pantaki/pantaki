@@ -6,6 +6,9 @@ import Draggable from 'react-draggable';
 import AnimateHeight from 'react-animate-height';
 import Form from 'react-bootstrap/Form';
 import { MdSettings, MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
+// import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+// import NodeRendererDefault from '../../node-renderer-custom.js';
+import Tree from '../TreeTask/Tree'
 
 const task_item = [
   {
@@ -297,7 +300,7 @@ export default class User extends Component {
                                       {/* <MdSettings /> */}
                                       </li>
                                   </ul>
-                                </div>
+                              </div>
                               
 
                               // <div className='item-task' >
@@ -317,16 +320,16 @@ export default class User extends Component {
                                 {
                                   task_card.id == 1 &&
                                   <SortableTree
-                                  treeData={this.state.task_data1}
-                                  onChange={task_data1 => this.setState({ task_data1 })}
-                                  dndType={externalNodeType}
-                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                  generateNodeProps={({ node, path }) => {
-                                    return {
-                                      className:  `${node.className}`,
-                                    };
-                                  }}
-                                />
+                                    treeData={this.state.task_data1}
+                                    onChange={task_data1 => this.setState({ task_data1 })}
+                                    dndType={externalNodeType}
+                                    // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                    generateNodeProps={({ node, path }) => {
+                                      return {
+                                        className:  `${node.className}`,
+                                      };
+                                    }}
+                                  />
                                 }
                                 {
                                   task_card.id == 2 &&
@@ -382,6 +385,7 @@ export default class User extends Component {
                                     className:  `${node.className}`,
                                     };
                                   }}
+                                  
                                 />
                                 }
                                 {
@@ -396,12 +400,14 @@ export default class User extends Component {
                                     className:  `${node.className}`,
                                     };
                                   }}
-                                />
+                                  
+                                  />
+                                
                                 }
                                 
                               </div>
                             </div>
-
+                            
                           
 
                           {/* {task_card.task_data.map((task_table) => {
@@ -433,7 +439,7 @@ export default class User extends Component {
 
             </div>
 
-            
+            <Tree data={this.state.task_data6} />
           </div>
           <div className='documents-info-drap'>
             <Draggable disabled={disabled2} bounds="parent">

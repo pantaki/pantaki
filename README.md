@@ -87,3 +87,9 @@ npm install --save-exact react-draggable@4.4.5
 <!-- npm install --save-exact react-dnd@16.0.1
 npm install --save-exact react-beautifull-dnd-scrollzone@3.0.0 -->
 npm install --save-exact react-animate-height@3.1.1
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/base
+npm install @mui/system @emotion/react @emotion/styled
+npm install react-icons --save
+
+npm install --save-exact @jstarpl/react-contextmenu@2.15.0
