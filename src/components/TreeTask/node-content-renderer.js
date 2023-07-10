@@ -51,12 +51,7 @@ class MinimalThemeNodeContentRenderer extends Component {
     const isDraggedDescendant = draggedNode && isDescendant(draggedNode, node);
     const isLandingPadActive = !didDrop && isDragging;
     const nodeContent = connectDragPreview(
-      <div className="row-test">
-        <div className='user-effects-test'>
-            <span>test 123</span>
-        </div>
-
-        <div
+      <div
         className={
           styles.rowContents +
           (isSearchMatch ? ` ${styles.rowSearchMatch}` : "") +
@@ -102,7 +97,6 @@ class MinimalThemeNodeContentRenderer extends Component {
               {btn}
             </div>
           ))}
-        </div>
         </div>
       </div>
       

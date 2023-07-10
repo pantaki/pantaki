@@ -8,28 +8,35 @@ import SortableTree, {
 import "@nosferatu500/react-sortable-tree/style.css";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import DeleteIcon from '@mui/icons-material/Delete';
+import InfoIcon from '@mui/icons-material/Info';
+import AddIcon from '@mui/icons-material/Add';
+import UpgradeIcon from '@mui/icons-material/Upgrade';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 const seed = [
   {
     id: "123",
-    title: "Company",
-    subtitle: "zzz",
+    title: "Task1",
+    subtitle: "lorem ipsum",
     isDirectory: true,
     expanded: true,
     children: [
-      { id: "456", title: "Human Resource", subtitle: "zzz" },
+      { id: "456", title: "Task1 1", subtitle: "lorem ipsum" },
       {
         id: "789",
-        title: "Bussiness",
-        subtitle: "zzz",
+        title: "Task1 2",
+        subtitle: "lorem",
         expanded: true,
         children: [
           {
             id: "234",
-            title: "Store A",
-            subtitle: "zzz"
+            title: "Task1 2 1",
+            subtitle: "ipsum"
           },
-          { id: "567", title: "Store B", subtitle: "zzz" }
+          { id: "567", title: "Task1 2 2", subtitle: "zzz" }
         ]
       }
     ]
@@ -214,16 +221,16 @@ function Tree() {
   const getNodeKey = ({ treeIndex }) => treeIndex;
 
   return (
-    <div className="rowTest">
+    <div className="content-task-node">
       <div style={{ flex: "0 0 auto", padding: "0 15px" }}>
-        <h3>Full Node Drag</h3>
+        <h3>Test Task Drag New</h3>
         <input ref={inputEl} type="text" />
-        {/* <TextField style={{margin: '10px 0'}} ref={inputEl} id="value-add" label="Value" variant="standard" /> */}
+        {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
         <br />
-        <Button variant="outlined" onClick={createNode}>Create Node</Button>
+        <Button style={{ margin: "10px 0" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
         <br />
-        <Button variant="outlined" onClick={expandAll}>Expand All</Button>
-        <Button variant="outlined" onClick={collapseAll}>Collapse All</Button>
+        <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button>
+        <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <form
           style={{ display: "inline-block" }}
@@ -231,9 +238,8 @@ function Tree() {
             event.preventDefault();
           }}
         >
-          <label htmlFor="find-box">
-            
-           
+          {/* <label htmlFor="find-box"> */}
+          
             <TextField 
             label="Search" 
             variant="standard" 
@@ -241,9 +247,10 @@ function Tree() {
             value={searchString}
             onChange={(event) => setSearchString(event.target.value)}
             />
-          </label>
+          {/* </label> */}
 
           <Button
+            style={{ marginRight: "10px" }}
             variant="outlined"
             type="button"
             disabled={!searchFoundCount}
@@ -253,6 +260,7 @@ function Tree() {
           </Button>
 
           <Button
+            style={{ marginRight: "10px" }}
             variant="outlined"
             type="submit"
             disabled={!searchFoundCount}
@@ -290,31 +298,36 @@ function Tree() {
             buttons: [
               <div>
                 <Button
+                  style={{ marginRight: "10px" }}
                   variant="outlined"
                   label="Add Sibling"
                   onClick={(event) => addNodeSibling(rowInfo)}
                 >
-                  Add Sibling
+                  <AddIcon /> Sibling
                 </Button>
                 <Button
+                  style={{ marginRight: "10px" }}
                   variant="outlined"
                   label="Add Child"
                   onClick={(event) => addNodeChild(rowInfo)}
                 >
-                  Add Child
+                  <AddIcon /> Child
                 </Button>
-                <Button variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
-                  Update
+                <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
+                <UpgradeIcon /> Update
+                  
                 </Button>
-                <Button variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
-                  Remove
+                <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
+                  {/* Remove */}
+                  <DeleteIcon />
                 </Button>
                 <Button
+                  style={{ marginRight: "10px" }}
                   variant="outlined"
                   label="Alert"
                   onClick={(event) => alertNodeInfo(rowInfo)}
                 >
-                  Info
+                  <InfoIcon />
                 </Button>
               </div>
             ],
