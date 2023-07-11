@@ -15,6 +15,8 @@ import UpgradeIcon from '@mui/icons-material/Upgrade';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+// import CustomTheme from 'react-sortable-tree-theme-minimal';
+
 
 const seed = [
   {
@@ -226,61 +228,29 @@ function Tree() {
         <h3>Test Task Drag New</h3>
         <input ref={inputEl} type="text" />
         {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
-        <br />
-        <Button style={{ margin: "10px 0" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
-        <br />
-        <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button>
-        <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <form
-          style={{ display: "inline-block" }}
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        {/* <br /> */}
+        <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
+        {/* <br /> */}
+        {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button> */}
+        {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button> */}
+        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+        {/* <form style={{ display: "inline-block" }} onSubmit={(event) => { event.preventDefault(); }} > */}
           {/* <label htmlFor="find-box"> */}
           
-            <TextField 
-            label="Search" 
-            variant="standard" 
-            id="find-box"
-            value={searchString}
-            onChange={(event) => setSearchString(event.target.value)}
-            />
+            {/* <TextField label="Search" variant="standard" id="find-box" value={searchString} onChange={(event) => setSearchString(event.target.value)} /> */}
           {/* </label> */}
 
-          <Button
-            style={{ marginRight: "10px" }}
-            variant="outlined"
-            type="button"
-            disabled={!searchFoundCount}
-            onClick={selectPrevMatch}
-          >
-            &lt;
-          </Button>
+          {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="button" disabled={!searchFoundCount} onClick={selectPrevMatch} > &lt; </Button> */}
 
-          <Button
-            style={{ marginRight: "10px" }}
-            variant="outlined"
-            type="submit"
-            disabled={!searchFoundCount}
-            onClick={selectNextMatch}
-          >
-         
-            &gt;
-          </Button>
+          {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="submit" disabled={!searchFoundCount} onClick={selectNextMatch} > &gt; </Button> */}
 
-          <span>
-            &nbsp;
-            {searchFoundCount > 0 ? searchFocusIndex + 1 : 0}
-            &nbsp;/&nbsp;
-            {searchFoundCount || 0}
-          </span>
-        </form>
+          {/* <span> &nbsp; {searchFoundCount > 0 ? searchFocusIndex + 1 : 0} &nbsp;/&nbsp; {searchFoundCount || 0} </span> */}
+        {/* </form> */}
       </div>
 
       <div style={{ height: "100vh" }}>
         <SortableTree
+        
           treeData={treeData}
           onChange={(treeData) => updateTreeData(treeData)}
           searchQuery={searchString}
@@ -291,7 +261,8 @@ function Tree() {
               matches.length > 0 ? searchFocusIndex % matches.length : 0
             );
           }}
-          canDrag={({ node }) => !node.dragDisabled}
+          // canDrag={({ node }) => !node.dragDisabled}
+          canDrag={<AddIcon />}
           generateNodeProps={(rowInfo) => ({
             // title: rowInfo.node.label,
             // subtitle: rowInfo.node.subTitle,
@@ -314,7 +285,7 @@ function Tree() {
                   <AddIcon /> Child
                 </Button>
                 <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
-                <UpgradeIcon /> Update
+                  <UpgradeIcon /> Update
                   
                 </Button>
                 <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
