@@ -13,7 +13,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Tree from '../TreeTask/Tree';
-// import ListTask from '../ListTask';
+import ListTask from '../ListTask';
 
 const task_item = [
   {
@@ -191,7 +191,7 @@ export default class User extends Component {
       // shouldCopyOnOutsideDrop: false,
       height: 0,
       height2: 0,
-      value: '0'
+      // valueTasks:1
     };
     // const [value, setValue] = React.useState('1');
 
@@ -286,358 +286,174 @@ export default class User extends Component {
           </div>
 
           <div className='item-content'>
-            <div className='item-tab-content'>
-              <div className='user-container '>
-                <div className='item-card-table'>
-                  
-                  <Box sx={{  width: '100%' }}>
-                    <TabContext value={this.state.value}>
-                      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <TabList 
-                        onChange={(event: React.SyntheticEvent, newValue: String) => this.setState({ value: newValue })}
-                        // variant="scrollable"
-                        // scrollButtons="auto"
-                        // aria-label="scrollable auto tabs example"
-                        >
-                          <Tab label='Full Task' value='0' />
-                          {task_item.map((task_card, i ) => {
-                            return (  
-                              <Tab label={task_card.name} value={task_card.id} />
-                          )})}
-                        </TabList>
-                      </Box>
-                      <TabPanel value='0'>
-                      
-                        <div className='item-list'>
-                            {task_item.map((task_card, i ) => {
-                              return (
-                                  <div className='item-card'>
-                                    <div className='item-card-header'>
-                                      <span className='item-card-title'>{task_card.name}</span>
-                                      <div className='item-card-content'>
-                                        {/* <span className='item-task'>{task_card.name}</span> */}
-                                        {task_card.task_data.map((task_item1, index) => {
-                                          return (
+            <div className='item-list'>
+              {task_item.map((task_card, i ) => {
+                return (
+                    <div className='item-card'>
+                      <div className='item-card-header'>
+                        <span className='item-card-title'>{task_card.name}</span>
+                        <div className='item-card-content'>
+                          {/* <span className='item-task'>{task_card.name}</span> */}
+                          {task_card.task_data.map((task_item1, index) => {
+                            return (
 
-                                            <div className='user-effects'>
-                                                <ul>
-                                                    <li className={task_item1.className2} style={{'--i':1}}>
-                                                        <MdAccountCircle />
-                                                    </li>
-                                                    <li className={task_item1.className3} style={{'--i':2}}>
-                                                        <MdCalendarMonth />
-                                                    </li>
-                                                    <li className={task_item1.className4} style={{'--i':3}}>
-                                                        <MdAndroid />
-                                                    </li>
-                                                    <li className={task_item1.className} style={{'--i':4}}>
-                                                    {/* <MdSettings /> */}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            
-
-                                            // <div className='item-task' >
-                                            //   <span className={task_item1.name}></span>
-                                            // </div>
-                                          )
-                                        })}
-                                      </div>
-                                    </div>
-                                    <div className='item-card-table'>
-                                      {/* <Tab label={task_card.name} value={task_card.id} /> */}
-                                      <h3 className='table-title'>{task_card.name}</h3>
-                                      {/* <ListTask task_card={task_card} data_state={this.state}/> */}
-                                      <div className='table-content'>
-                                        <ul className='table-list'>
-                                          <div>
-                                            <div style={{ height: 500 }}>
-                                              {
-                                                task_card.id == 1 &&
-                                                <SortableTree
-                                                  treeData={this.state.task_data1}
-                                                  onChange={task_data1 => this.setState({ task_data1 })}
-                                                  dndType={externalNodeType}
-                                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                                  generateNodeProps={({ node, path }) => {
-                                                    return {
-                                                      className:  `${node.className}`,
-                                                    };
-                                                  }}
-                                                />
-                                              }
-                                              {
-                                                task_card.id == 2 &&
-                                                <SortableTree
-                                                treeData={this.state.task_data2}
-                                                onChange={task_data2 => this.setState({ task_data2 })}
-                                                dndType={externalNodeType}
-                                                // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                                generateNodeProps={({ node, path }) => {
-                                                  return {
-                                                  className:  `${node.className}`,
-                                                  };
-                                                }}
-                                              />
-                                              }
-                                              {
-                                                task_card.id == 3 &&
-                                                <SortableTree
-                                                treeData={this.state.task_data3}
-                                                onChange={task_data3 => this.setState({ task_data3 })}
-                                                dndType={externalNodeType}
-                                                // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                                generateNodeProps={({ node, path }) => {
-                                                  return {
-                                                  className:  `${node.className}`,
-                                                  };
-                                                }}
-                                              />
-                                              }
-                                              {
-                                                task_card.id == 4 &&
-                                                <SortableTree
-                                                treeData={this.state.task_data4}
-                                                onChange={task_data4 => this.setState({ task_data4 })}
-                                                dndType={externalNodeType}
-                                                // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                                generateNodeProps={({ node, path }) => {
-                                                  return {
-                                                  className:  `${node.className}`,
-                                                  };
-                                                }}
-                                              />
-                                              }
-                                              {
-                                                task_card.id == 5 &&
-                                                <SortableTree
-                                                treeData={this.state.task_data5}
-                                                onChange={task_data5 => this.setState({ task_data5 })}
-                                                dndType={externalNodeType}
-                                                // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                                generateNodeProps={({ node, path }) => {
-                                                  return {
-                                                  className:  `${node.className}`,
-                                                  };
-                                                }}
-                                                
-                                              />
-                                              }
-                                              {
-                                                task_card.id == 6 &&
-                                                <SortableTree
-                                                treeData={this.state.task_data6}
-                                                onChange={task_data6 => this.setState({ task_data6 })}
-                                                dndType={externalNodeType}
-                                                // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                                generateNodeProps={({ node, path }) => {
-                                                  return {
-                                                  className:  `${node.className}`,
-                                                  };
-                                                }}
-                                                />
-                                                // <Tree data={this.state.task_data6} />
-                                              
-                                              }
-                                              
-                                            </div>
-                                          </div>
-                                          
-                                        
-
-                                        {/* {task_card.task_data.map((task_table) => {
-                                          return (
-                                            <li className='table-list-li'>
-                                              <div className='table-task-status'>
-                                                <span className={task_table.name}></span>
-                                              </div>
-                                              
-                                              <p className='table-task-text'>{task_table.text}</p>
-                                            </li>
-
-                                          )
-
-                                        })} */}
-                                          
-                                        
-                                          
-                                          
-                                        </ul>
-                                      </div>
-                                  </div>
-                                    
-                                  </div>
-
-                              )})
-                            }
-
-                        
-                        </div>
-                      </TabPanel>
-                        {task_item.map((task_card, i ) => {
-                          return (  
-                            <TabPanel value={task_card.id}>
-                              <div className='item-card-header'>
-                                <span className='item-card-title'>{task_card.name}</span>
-                                <div className='item-card-content'>
-                                  {/* <span className='item-task'>{task_card.name}</span> */}
-                                  {task_card.task_data.map((task_item1, index) => {
-                                    return (
-
-                                      <div className='user-effects'>
-                                          <ul>
-                                              <li className={task_item1.className2} style={{'--i':1}}>
-                                                  <MdAccountCircle />
-                                              </li>
-                                              <li className={task_item1.className3} style={{'--i':2}}>
-                                                  <MdCalendarMonth />
-                                              </li>
-                                              <li className={task_item1.className4} style={{'--i':3}}>
-                                                  <MdAndroid />
-                                              </li>
-                                              <li className={task_item1.className} style={{'--i':4}}>
-                                              {/* <MdSettings /> */}
-                                              </li>
-                                          </ul>
-                                      </div>
-                                      
-
-                                      // <div className='item-task' >
-                                      //   <span className={task_item1.name}></span>
-                                      // </div>
-                                    )
-                                  })}
-                                </div>
+                              <div className='user-effects'>
+                                  <ul>
+                                      <li className={task_item1.className2} style={{'--i':1}}>
+                                          <MdAccountCircle />
+                                      </li>
+                                      <li className={task_item1.className3} style={{'--i':2}}>
+                                          <MdCalendarMonth />
+                                      </li>
+                                      <li className={task_item1.className4} style={{'--i':3}}>
+                                          <MdAndroid />
+                                      </li>
+                                      <li className={task_item1.className} style={{'--i':4}}>
+                                      {/* <MdSettings /> */}
+                                      </li>
+                                  </ul>
                               </div>
-                              <div className='table-content'>
-                                <ul className='table-list'>
-                                  <div className={task_card.className}>
-                                    <div style={{ height: 500 }}>
-                                      {
-                                        task_card.id == 1 &&
-                                        // <SortableTree
-                                        //   treeData={this.state.task_data1}
-                                        //   onChange={task_data1 => this.setState({ task_data1 })}
-                                        //   dndType={externalNodeType}
-                                        //   // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                        //   generateNodeProps={({ node, path }) => {
-                                        //     return {
-                                        //       className:  `${node.className}`,
-                                        //     };
-                                        //   }}
-                                        // />
-                                        <Tree data={this.state.task_data1} />
-                                      }
-                                      {
-                                        task_card.id == 2 &&
-                                        // <SortableTree
-                                        // treeData={this.state.task_data2}
-                                        // onChange={task_data2 => this.setState({ task_data2 })}
-                                        // dndType={externalNodeType}
-                                        // // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                        // generateNodeProps={({ node, path }) => {
-                                        //   return {
-                                        //   className:  `${node.className}`,
-                                        //   };
-                                        // }}
-                                        // />
-                                        <Tree data={this.state.task_data2} />
-                                      }
-                                      {
-                                        task_card.id == 3 &&
-                                        // <SortableTree
-                                        // treeData={this.state.task_data3}
-                                        // onChange={task_data3 => this.setState({ task_data3 })}
-                                        // dndType={externalNodeType}
-                                        // // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                        // generateNodeProps={({ node, path }) => {
-                                        //   return {
-                                        //   className:  `${node.className}`,
-                                        //   };
-                                        // }}
-                                        // />
-                                        <Tree data={this.state.task_data3} />
-                                      }
-                                      {
-                                        task_card.id == 4 &&
-                                        // <SortableTree
-                                        // treeData={this.state.task_data4}
-                                        // onChange={task_data4 => this.setState({ task_data4 })}
-                                        // dndType={externalNodeType}
-                                        // // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                        // generateNodeProps={({ node, path }) => {
-                                        //   return {
-                                        //   className:  `${node.className}`,
-                                        //   };
-                                        // }}
-                                        // />
-                                        <Tree data={this.state.task_data4} />
-                                      }
-                                      {
-                                        task_card.id == 5 &&
-                                      //   <SortableTree
-                                      //   treeData={this.state.task_data5}
-                                      //   onChange={task_data5 => this.setState({ task_data5 })}
-                                      //   dndType={externalNodeType}
-                                      //   // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                      // generateNodeProps={({ node, path }) => {
-                                      //   return {
-                                      //   className:  `${node.className}`,
-                                      //   };
-                                      // }}                                    
-                                      // />
-                                        <Tree data={this.state.task_data5} />
-                                      }
-                                      {
-                                        task_card.id == 6 &&
-                                        // <SortableTree
-                                        // treeData={this.state.task_data6}
-                                        // onChange={task_data6 => this.setState({ task_data6 })}
-                                        // dndType={externalNodeType}
-                                        // // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
-                                        // generateNodeProps={({ node, path }) => {
-                                        //   return {
-                                        //   className:  `${node.className}`,
-                                        //   };
-                                        // }}
-                                        // />
-                                        <Tree data={this.state.task_data6} />
-                                      
-                                      }
-                                    
-                                  </div>
+                              
+
+                              // <div className='item-task' >
+                              //   <span className={task_item1.name}></span>
+                              // </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+
+                      <div className='item-card-table'>
+                        <h3 className='table-title'>{task_card.name}</h3>
+                        {/* <ListTask title={task_card.name} title={task_card.name} /> */}
+                        <ListTask title={task_card.name} task_card={task_card} data_state={this.state}/>
+                        <div className='table-content'>
+                          <ul className='table-list'>
+                            <div>
+                              <div style={{ height: 500 }}>
+                                {
+                                  task_card.id == 1 &&
+                                  <SortableTree
+                                    treeData={this.state.task_data1}
+                                    onChange={task_data1 => this.setState({ task_data1 })}
+                                    dndType={externalNodeType}
+                                    // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                    generateNodeProps={({ node, path }) => {
+                                      return {
+                                        className:  `${node.className}`,
+                                      };
+                                    }}
+                                  />
+                                }
+                                {
+                                  task_card.id == 2 &&
+                                  <SortableTree
+                                  treeData={this.state.task_data2}
+                                  onChange={task_data2 => this.setState({ task_data2 })}
+                                  dndType={externalNodeType}
+                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                  generateNodeProps={({ node, path }) => {
+                                    return {
+                                    className:  `${node.className}`,
+                                    };
+                                  }}
+                                />
+                                }
+                                {
+                                  task_card.id == 3 &&
+                                  <SortableTree
+                                  treeData={this.state.task_data3}
+                                  onChange={task_data3 => this.setState({ task_data3 })}
+                                  dndType={externalNodeType}
+                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                  generateNodeProps={({ node, path }) => {
+                                    return {
+                                    className:  `${node.className}`,
+                                    };
+                                  }}
+                                />
+                                }
+                                {
+                                  task_card.id == 4 &&
+                                  <SortableTree
+                                  treeData={this.state.task_data4}
+                                  onChange={task_data4 => this.setState({ task_data4 })}
+                                  dndType={externalNodeType}
+                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                  generateNodeProps={({ node, path }) => {
+                                    return {
+                                    className:  `${node.className}`,
+                                    };
+                                  }}
+                                />
+                                }
+                                {
+                                  task_card.id == 5 &&
+                                  <SortableTree
+                                  treeData={this.state.task_data5}
+                                  onChange={task_data5 => this.setState({ task_data5 })}
+                                  dndType={externalNodeType}
+                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                  generateNodeProps={({ node, path }) => {
+                                    return {
+                                    className:  `${node.className}`,
+                                    };
+                                  }}
+                                  
+                                />
+                                }
+                                {
+                                  task_card.id == 6 &&
+                                  <SortableTree
+                                  treeData={this.state.task_data6}
+                                  onChange={task_data6 => this.setState({ task_data6 })}
+                                  dndType={externalNodeType}
+                                  // shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
+                                  generateNodeProps={({ node, path }) => {
+                                    return {
+                                    className:  `${node.className}`,
+                                    };
+                                  }}
+                                  />
+                                  // <Tree data={this.state.task_data6} />
+                                
+                                }
+                                
+                              </div>
+                            </div>
+                            
+                          
+
+                          {/* {task_card.task_data.map((task_table) => {
+                            return (
+                              <li className='table-list-li'>
+                                <div className='table-task-status'>
+                                  <span className={task_table.name}></span>
                                 </div>
                                 
-                              
+                                <p className='table-task-text'>{task_table.text}</p>
+                              </li>
 
-                              {/* {task_card.task_data.map((task_table) => {
-                                return (
-                                  <li className='table-list-li'>
-                                    <div className='table-task-status'>
-                                      <span className={task_table.name}></span>
-                                    </div>
-                                    
-                                    <p className='table-task-text'>{task_table.text}</p>
-                                  </li>
+                            )
 
-                                )
+                          })} */}
+                            
+                           
+                            
+                            
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
 
-                              })} */}
-                                
-                              
-                                
-                                
-                              </ul>
-                            </div>
-                          </TabPanel>
-                    )})}
-                    
-                  </TabContext>
-                </Box>
-                </div>
-              </div>
-              
+                )
+              })
+
+              }
+
             </div>
+            
+            <Tree data={this.state.task_data6} />
           </div>
           <div className='documents-info-drap'>
             <Draggable disabled={disabled2} bounds="parent">
@@ -778,7 +594,7 @@ export default class User extends Component {
                  
               </div>
             </Draggable>
-          </div>
+            </div>
           
         </div>
       </div>

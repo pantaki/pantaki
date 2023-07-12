@@ -8,8 +8,10 @@
     "@jstarpl/react-contextmenu": "2.15.0",
     "@mui/base": "^5.0.0-beta.6",
     "@mui/icons-material": "^5.13.7",
-    "@mui/material": "^5.13.7",
-    "@mui/system": "^5.13.7",
+    "@mui/lab": "^5.0.0-alpha.136",
+    "@mui/material": "^5.14.0",
+    "@mui/styled-engine-sc": "^5.12.0",
+    "@mui/system": "^5.14.0",
     "@nosferatu500/react-sortable-tree": "4.4.0",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.3.0",
@@ -30,6 +32,7 @@
     "redux-devtools-extension": "2.13.9",
     "redux-thunk": "2.4.1",
     "sass": "1.63.6",
+    "styled-components": "^5.3.11",
     "web-vitals": "2.1.4"
   },
   "scripts": {

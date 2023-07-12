@@ -45,11 +45,11 @@ const seed = [
   }
 ];
 
-function Tree() {
+function Tree(props) {
   const [searchString, setSearchString] = useState("");
   const [searchFocusIndex, setSearchFocusIndex] = useState(0);
   const [searchFoundCount, setSearchFoundCount] = useState(null);
-  const [treeData, setTreeData] = useState(seed);
+  const [treeData, setTreeData] = useState(props.data);
 
   const inputEl = useRef();
 
@@ -225,7 +225,7 @@ function Tree() {
   return (
     <div className="content-task-node">
       <div style={{ flex: "0 0 auto", padding: "0 15px" }}>
-        <h3>Test Task Drag New</h3>
+        {/* <h3>Test Task Drag New</h3> */}
         <input ref={inputEl} type="text" />
         {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
         {/* <br /> */}
@@ -248,7 +248,7 @@ function Tree() {
         {/* </form> */}
       </div>
 
-      <div style={{ height: "100vh" }}>
+      <div style={{ height: "100vh" }} >
         <SortableTree
         
           treeData={treeData}
@@ -263,7 +263,7 @@ function Tree() {
           }}
           // canDrag={({ node }) => !node.dragDisabled}
           canDrag={<AddIcon />}
-          generateNodeProps={(rowInfo) => ({
+          generateNodeProps={( rowInfo) => ({
             // title: rowInfo.node.label,
             // subtitle: rowInfo.node.subTitle,
             buttons: [
@@ -302,6 +302,7 @@ function Tree() {
                 </Button>
               </div>
             ],
+            className:  `${rowInfo.node.className}`,
             style: {
               height: "50px"
             }

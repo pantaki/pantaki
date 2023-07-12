@@ -9,7 +9,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import User from './components/User/User';
 import Admin from './components/Admin/Admin';
 import HomePage from './components/Home/HomePage';
-
+// import nodeContentRenderer from './components/TreeTask/node-content-renderer';
+// module.exports = {
+//   nodeContentRenderer,
+// };
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

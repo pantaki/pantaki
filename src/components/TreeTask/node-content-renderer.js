@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styles from "./node-content-renderer.scss";
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+// import styles from './node-content-renderer.scss';
+import styles from "@nosferatu500/react-sortable-tree/style.css";
 function isDescendant(older, younger) {
   return (
     !!older.children &&
-    typeof older.children !== "function" &&
+    typeof older.children !== 'function' &&
     older.children.some(
       child => child === younger || isDescendant(child, younger)
     )
@@ -13,7 +13,7 @@ function isDescendant(older, younger) {
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class MinimalThemeNodeContentRenderer extends Component {
+class CustomThemeNodeContentRenderer extends Component {
   render() {
     const {
       scaffoldBlockPxWidth,
@@ -36,13 +36,14 @@ class MinimalThemeNodeContentRenderer extends Component {
       className,
       style,
       didDrop,
+      lowerSiblingCounts,
+      listIndex,
       swapFrom,
       swapLength,
       swapDepth,
       treeId, // Not needed, but preserved for other renderers
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
-      rowDirection,
       ...otherProps
     } = this.props;
     const nodeTitle = title || node.title;
@@ -50,124 +51,123 @@ class MinimalThemeNodeContentRenderer extends Component {
 
     const isDraggedDescendant = draggedNode && isDescendant(draggedNode, node);
     const isLandingPadActive = !didDrop && isDragging;
+
     const nodeContent = connectDragPreview(
       <div
         className={
-          styles.rowContents +
-          (isSearchMatch ? ` ${styles.rowSearchMatch}` : "") +
-          (isSearchFocus ? ` ${styles.rowSearchFocus}` : "") +
-          (!canDrag ? ` ${styles.rowContentsDragDisabled}` : "")
+          styles.row +
+          (isLandingPadActive ? ` ${styles.rowLandingPad}` : '') +
+          (isLandingPadActive && !canDrop ? ` ${styles.rowCancelPad}` : '') +
+          (isSearchMatch ? ` ${styles.rowSearchMatch}` : '') +
+          (isSearchFocus ? ` ${styles.rowSearchFocus}` : '') +
+          (className ? ` ${className}` : '')
         }
+        style={{
+          opacity: isDraggedDescendant ? 0.5 : 1,
+          ...style,
+        }}
       >
-        <div className={styles.rowLabel}>
-          <span
-            className={
-              styles.rowTitle +
-              (node.subtitle ? ` ${styles.rowTitleWithSubtitle}` : "")
-            }
-          >
-            {typeof nodeTitle === "function"
-              ? nodeTitle({
-                  node,
-                  path,
-                  treeIndex
-                })
-              : nodeTitle}
-          </span>
-
-          {nodeSubtitle && (
-            <span className={styles.rowSubtitle}>
-              {typeof nodeSubtitle === "function"
-                ? nodeSubtitle({
+        <div
+          className={
+            styles.rowContents +
+            (!canDrag ? ` ${styles.rowContentsDragDisabled}` : '')
+          }
+        >
+          <div className={styles.rowLabel}>
+            <span
+              className={
+                styles.rowTitle +
+                (node.subtitle ? ` ${styles.rowTitleWithSubtitle}` : '')
+              }
+            >
+              {typeof nodeTitle === 'function'
+                ? nodeTitle({
                     node,
                     path,
-                    treeIndex
+                    treeIndex,
                   })
-                : nodeSubtitle}
+                : nodeTitle}
             </span>
-          )}
-        </div>
 
-        <div className={styles.rowToolbar}>
-          {buttons.map((btn, index) => (
-            <div
-              key={index} // eslint-disable-line react/no-array-index-key
-              className={styles.toolbarButton}
-            >
-              {btn}
-            </div>
-          ))}
+            {nodeSubtitle && (
+              <span className={styles.rowSubtitle}>
+                {typeof nodeSubtitle === 'function'
+                  ? nodeSubtitle({
+                      node,
+                      path,
+                      treeIndex,
+                    })
+                  : nodeSubtitle}
+              </span>
+            )}
+          </div>
+
+          <div className={styles.rowToolbar}>
+            {buttons.map((btn, index) => (
+              <div
+                key={index} // eslint-disable-line react/no-array-index-key
+                className={styles.toolbarButton}
+              >
+                {btn}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      
     );
 
     return (
-      <div style={{ height: "100%" }} {...otherProps}>
+      <div style={{ height: '100%' }} {...otherProps}>
         {toggleChildrenVisibility &&
           node.children &&
-          (node.children.length > 0 || typeof node.children === "function") && (
+          (node.children.length > 0 || typeof node.children === 'function') && (
             <div>
               <button
                 type="button"
-                aria-label={node.expanded ? "Collapse" : "Expand"}
+                aria-label={node.expanded ? 'Collapse' : 'Expand'}
                 className={
                   node.expanded ? styles.collapseButton : styles.expandButton
                 }
+                style={{ left: -0.5 * scaffoldBlockPxWidth }}
                 onClick={() =>
                   toggleChildrenVisibility({
                     node,
                     path,
-                    treeIndex
+                    treeIndex,
                   })
                 }
               />
 
-              {node.expanded && !isDragging && (
-                <div
-                  style={{ width: scaffoldBlockPxWidth }}
-                  className={styles.lineChildren}
-                />
-              )}
+              {node.expanded &&
+                !isDragging && (
+                  <div
+                    style={{ width: scaffoldBlockPxWidth }}
+                    className={styles.lineChildren}
+                  />
+                )}
             </div>
           )}
 
         <div
           className={
             styles.rowWrapper +
-            (!canDrag ? ` ${styles.rowWrapperDragDisabled}` : "")
+            (!canDrag ? ` ${styles.rowWrapperDragDisabled}` : '')
           }
         >
-          <div
-            className={
-              styles.row +
-              (isLandingPadActive ? ` ${styles.rowLandingPad}` : "") +
-              (isLandingPadActive && !canDrop
-                ? ` ${styles.rowCancelPad}`
-                : "") +
-              (className ? ` ${className}` : "")
-            }
-            style={{
-              opacity: isDraggedDescendant ? 0.5 : 1,
-              paddingLeft: scaffoldBlockPxWidth,
-              ...style
-            }}
-          >
-            {canDrag
-              ? connectDragSource(nodeContent, { dropEffect: "copy" })
-              : nodeContent}
-          </div>
+          {canDrag
+            ? connectDragSource(nodeContent, { dropEffect: 'copy' })
+            : nodeContent}
         </div>
       </div>
     );
   }
 }
 
-MinimalThemeNodeContentRenderer.defaultProps = {
+CustomThemeNodeContentRenderer.defaultProps = {
   buttons: [],
   canDrag: false,
   canDrop: false,
-  className: "",
+  className: '',
   draggedNode: null,
   icons: [],
   isSearchFocus: false,
@@ -180,16 +180,17 @@ MinimalThemeNodeContentRenderer.defaultProps = {
   swapLength: null,
   title: null,
   toggleChildrenVisibility: null,
-  rowDirection: "ltr"
 };
 
-MinimalThemeNodeContentRenderer.propTypes = {
+CustomThemeNodeContentRenderer.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.node),
   canDrag: PropTypes.bool,
   className: PropTypes.string,
   icons: PropTypes.arrayOf(PropTypes.node),
   isSearchFocus: PropTypes.bool,
   isSearchMatch: PropTypes.bool,
+  listIndex: PropTypes.number.isRequired,
+  lowerSiblingCounts: PropTypes.arrayOf(PropTypes.number).isRequired,
   node: PropTypes.shape({}).isRequired,
   path: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
@@ -216,7 +217,6 @@ MinimalThemeNodeContentRenderer.propTypes = {
   // Drop target
   canDrop: PropTypes.bool,
   isOver: PropTypes.bool.isRequired,
-  rowDirection: PropTypes.string.isRequired
 };
 
-export default MinimalThemeNodeContentRenderer;
+export default CustomThemeNodeContentRenderer;
