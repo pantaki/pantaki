@@ -9,12 +9,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import User from './components/User/User';
 import Admin from './components/Admin/Admin';
 import HomePage from './components/Home/HomePage';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 // import nodeContentRenderer from './components/TreeTask/node-content-renderer';
 // module.exports = {
 //   nodeContentRenderer,
 // };
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <DndProvider backend={HTML5Backend}>
   <Provider store={store}>
     {/* <React.StrictMode> */}
       <BrowserRouter>
@@ -30,6 +33,7 @@ root.render(
       
     {/* </React.StrictMode> */}
   </Provider>
+  </DndProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

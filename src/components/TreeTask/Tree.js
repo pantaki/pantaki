@@ -223,13 +223,13 @@ function Tree(props) {
   const getNodeKey = ({ treeIndex }) => treeIndex;
 
   return (
-    <div className="content-task-node">
-      <div style={{ flex: "0 0 auto", padding: "0 15px" }}>
+    <div>
+      {/* <div style={{ flex: "0 0 auto", padding: "0 15px" }}> */}
         {/* <h3>Test Task Drag New</h3> */}
-        <input ref={inputEl} type="text" />
+        {/* <input ref={inputEl} type="text" /> */}
         {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
         {/* <br /> */}
-        <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
+        {/* <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button> */}
         {/* <br /> */}
         {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button> */}
         {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button> */}
@@ -246,69 +246,112 @@ function Tree(props) {
 
           {/* <span> &nbsp; {searchFoundCount > 0 ? searchFocusIndex + 1 : 0} &nbsp;/&nbsp; {searchFoundCount || 0} </span> */}
         {/* </form> */}
-      </div>
+      {/* </div> */}
 
-      <div style={{ height: "100vh" }} >
-        <SortableTree
+      
+      {props.type == 'showfull' && (
+
+        <div className="content-task-node">
+          <div style={{ height: "65vh" }} >
+            <SortableTree
+
+              treeData={treeData}
+              onChange={(treeData) => updateTreeData(treeData)}
+              searchQuery={searchString}
+              searchFocusOffset={searchFocusIndex}
+              searchFinishCallback={(matches) => {
+                setSearchFoundCount(matches.length);
+                setSearchFocusIndex(
+                  matches.length > 0 ? searchFocusIndex % matches.length : 0
+                );
+              }}
+              // canDrag={({ node }) => !node.dragDisabled}
+              canDrag={<AddIcon />}
+              generateNodeProps={({
+                node,
+                path,
+              }) => {
+                return {
+                  className: `${node.className}`,
+                };
+              }}
+            />    
+          </div>                               
+        </div>                               
+                                              
+      )}
+      {/* {props.type == 'show1' && ( */}
+        <div className="content-task-node">
+          <div style={{ height: "65vh" }} >
+            <div style={{ flex: "0 0 auto", padding: "0 15px" }}>  
+                <input ref={inputEl} type="text" />             
+                <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
+              </div>   
+            <SortableTree
+              treeData={treeData}
+              onChange={(treeData) => updateTreeData(treeData)}
+              searchQuery={searchString}
+              searchFocusOffset={searchFocusIndex}
+              searchFinishCallback={(matches) => {
+                setSearchFoundCount(matches.length);
+                setSearchFocusIndex(
+                  matches.length > 0 ? searchFocusIndex % matches.length : 0
+                );
+              }}
+              // canDrag={({ node }) => !node.dragDisabled}
+              canDrag={<AddIcon />}
+              generateNodeProps={( rowInfo) => ({
+                // title: rowInfo.node.label,
+                // subtitle: rowInfo.node.subTitle,
+                buttons: [
+                  <div>
+                    <Button
+                      style={{ marginRight: "10px" }}
+                      variant="outlined"
+                      label="Add Sibling"
+                      onClick={(event) => addNodeSibling(rowInfo)}
+                    >
+                      <AddIcon /> Sibling
+                    </Button>
+                    <Button
+                      style={{ marginRight: "10px" }}
+                      variant="outlined"
+                      label="Add Child"
+                      onClick={(event) => addNodeChild(rowInfo)}
+                    >
+                      <AddIcon /> Child
+                    </Button>
+                    <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
+                      <UpgradeIcon /> Update
+                      
+                    </Button>
+                    <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
+                      {/* Remove */}
+                      <DeleteIcon />
+                    </Button>
+                    <Button
+                      style={{ marginRight: "10px" }}
+                      variant="outlined"
+                      label="Alert"
+                      onClick={(event) => alertNodeInfo(rowInfo)}
+                    >
+                      <InfoIcon />
+                    </Button>
+                  </div>
+                ],
+                className:  `${rowInfo.node.className}`,
+                style: {
+                  height: "50px"
+                }
+              })}
+            />    
+
+                     
+          </div>   
+        </div>                                
+      {/* // )} */}
         
-          treeData={treeData}
-          onChange={(treeData) => updateTreeData(treeData)}
-          searchQuery={searchString}
-          searchFocusOffset={searchFocusIndex}
-          searchFinishCallback={(matches) => {
-            setSearchFoundCount(matches.length);
-            setSearchFocusIndex(
-              matches.length > 0 ? searchFocusIndex % matches.length : 0
-            );
-          }}
-          // canDrag={({ node }) => !node.dragDisabled}
-          canDrag={<AddIcon />}
-          generateNodeProps={( rowInfo) => ({
-            // title: rowInfo.node.label,
-            // subtitle: rowInfo.node.subTitle,
-            buttons: [
-              <div>
-                <Button
-                  style={{ marginRight: "10px" }}
-                  variant="outlined"
-                  label="Add Sibling"
-                  onClick={(event) => addNodeSibling(rowInfo)}
-                >
-                  <AddIcon /> Sibling
-                </Button>
-                <Button
-                  style={{ marginRight: "10px" }}
-                  variant="outlined"
-                  label="Add Child"
-                  onClick={(event) => addNodeChild(rowInfo)}
-                >
-                  <AddIcon /> Child
-                </Button>
-                <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
-                  <UpgradeIcon /> Update
-                  
-                </Button>
-                <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
-                  {/* Remove */}
-                  <DeleteIcon />
-                </Button>
-                <Button
-                  style={{ marginRight: "10px" }}
-                  variant="outlined"
-                  label="Alert"
-                  onClick={(event) => alertNodeInfo(rowInfo)}
-                >
-                  <InfoIcon />
-                </Button>
-              </div>
-            ],
-            className:  `${rowInfo.node.className}`,
-            style: {
-              height: "50px"
-            }
-          })}
-        />
-      </div>
+      
     </div>
   );
 }
