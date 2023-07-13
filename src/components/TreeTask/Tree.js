@@ -163,6 +163,7 @@ function Tree(props) {
 
   function removeNode(rowInfo) {
     const { path } = rowInfo;
+    if(window.confirm('Are you sure you wish to delete this item?'))
     setTreeData(
       removeNodeAtPath({
         treeData,
