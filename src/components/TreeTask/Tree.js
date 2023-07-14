@@ -16,6 +16,13 @@ import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 // import CustomTheme from 'react-sortable-tree-theme-minimal';
+import {
+  MdSettings,
+  MdAccountCircle,
+  MdCalendarMonth,
+  MdAndroid,
+  MdFlutterDash,
+} from "react-icons/md";
 
 
 const seed = [
@@ -45,17 +52,21 @@ const seed = [
   }
 ];
 
+
 function Tree(props) {
   const [searchString, setSearchString] = useState("");
   const [searchFocusIndex, setSearchFocusIndex] = useState(0);
   const [searchFoundCount, setSearchFoundCount] = useState(null);
   const [treeData, setTreeData] = useState(props.data);
-
+  // const [handleAddNewTask, sethandleAddNewTask] = useState(props.handleAddNewTask());
   const inputEl = useRef();
+  const handleNewTask = props;
 
-  // console.log(treeData);
+  // console.log(props.handleAddNewTask);
 
-  function createNode() {
+
+  
+  function createNode(props) {
     const value = inputEl.current.value;
 
     if (value === "") {
@@ -70,11 +81,23 @@ function Tree(props) {
       getNodeKey,
       newNode: {
         id: "123",
-        title: value
-      }
+        title: value,
+        name: "task_grey",
+        className: 'task_grey',
+        className2: "task_done",
+        className3: "task_note",
+        className4: "task_waiting",
+        
+      },
+      // className: 'task-grey'
     });
 
+    
+
+    // handleAddNewTask('test123');
+    handleNewTask.handleAddNewTask(newTree.treeData, handleNewTask.task_key);
     setTreeData(newTree.treeData);
+    
 
     inputEl.current.value = "";
   }
@@ -223,6 +246,9 @@ function Tree(props) {
 
   const getNodeKey = ({ treeIndex }) => treeIndex;
 
+  const handleAddNewTask1 = () => {
+    this.props.handleAddNewTask()
+  } 
   return (
     <div>
       {/* <div style={{ flex: "0 0 auto", padding: "0 15px" }}> */}
@@ -253,7 +279,7 @@ function Tree(props) {
       {props.type == 'showfull' && (
 
         <div className="content-task-node">
-          <div style={{ height: "65vh" }} >
+          <div style={{ height: "50vh" }} >
             <SortableTree
 
               treeData={treeData}
@@ -283,11 +309,8 @@ function Tree(props) {
       )}
       {/* {props.type == 'show1' && ( */}
         <div className="content-task-node">
-          <div style={{ height: "65vh" }} >
-            <div style={{ flex: "0 0 auto", padding: "0 15px" }}>  
-                <input ref={inputEl} type="text" />             
-                <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
-              </div>   
+          <div style={{ height: "50vh" }} >
+             
             <SortableTree
               treeData={treeData}
               onChange={(treeData) => updateTreeData(treeData)}
@@ -305,40 +328,76 @@ function Tree(props) {
                 // title: rowInfo.node.label,
                 // subtitle: rowInfo.node.subTitle,
                 buttons: [
-                  <div>
-                    <Button
-                      style={{ marginRight: "10px" }}
-                      variant="outlined"
-                      label="Add Sibling"
-                      onClick={(event) => addNodeSibling(rowInfo)}
-                    >
-                      <AddIcon /> Sibling
-                    </Button>
-                    <Button
-                      style={{ marginRight: "10px" }}
-                      variant="outlined"
-                      label="Add Child"
-                      onClick={(event) => addNodeChild(rowInfo)}
-                    >
-                      <AddIcon /> Child
-                    </Button>
-                    <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
-                      <UpgradeIcon /> Update
+                //   <div>
+                //     <Button
+                //       style={{ marginRight: "10px" }}
+                //       variant="outlined"
+                //       label="Add Sibling"
+                //       onClick={(event) => addNodeSibling(rowInfo)}
+                //     >
+                //       <AddIcon /> Sibling
+                //     </Button>
+                //     <Button
+                //       style={{ marginRight: "10px" }}
+                //       variant="outlined"
+                //       label="Add Child"
+                //       onClick={(event) => addNodeChild(rowInfo)}
+                //     >
+                //       <AddIcon /> Child
+                //     </Button>
+                //     <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
+                //       <UpgradeIcon /> Update
                       
-                    </Button>
-                    <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
-                      {/* Remove */}
-                      <DeleteIcon />
-                    </Button>
-                    <Button
-                      style={{ marginRight: "10px" }}
-                      variant="outlined"
-                      label="Alert"
-                      onClick={(event) => alertNodeInfo(rowInfo)}
+                //     </Button>
+                //     <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
+                //       {/* Remove */}
+                //       <DeleteIcon />
+                //     </Button>
+                //     <Button
+                //       style={{ marginRight: "10px" }}
+                //       variant="outlined"
+                //       label="Alert"
+                //       onClick={(event) => alertNodeInfo(rowInfo)}
+                //     >
+                //       <InfoIcon />
+                //     </Button>
+                //   </div>
+                <div className="user-effects">
+                  <ul>
+                    <li
+                      className={
+                        rowInfo.node.className2
+                      }
+                      style={{ "--i": 1 }}
                     >
-                      <InfoIcon />
-                    </Button>
-                  </div>
+                      <MdAccountCircle />
+                    </li>
+                    <li
+                      className={
+                        rowInfo.node.className3
+                      }
+                      style={{ "--i": 2 }}
+                    >
+                      <MdCalendarMonth />
+                    </li>
+                    <li
+                      className={
+                        rowInfo.node.className4
+                      }
+                      style={{ "--i": 3 }}
+                    >
+                      <MdAndroid />
+                    </li>
+                    <li
+                      className={
+                        rowInfo.node.className
+                      }
+                      style={{ "--i": 4 }}
+                    >
+                      {/* <MdSettings /> */}
+                    </li>
+                  </ul>
+                </div>
                 ],
                 className:  `${rowInfo.node.className}`,
                 style: {
@@ -347,7 +406,10 @@ function Tree(props) {
               })}
             />    
 
-                     
+            <div style={{ flex: "0 0 auto", padding: "0 15px" }}>  
+              <input ref={inputEl} type="text" />             
+              <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
+            </div>     
           </div>   
         </div>                                
       {/* // )} */}

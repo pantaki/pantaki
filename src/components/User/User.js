@@ -35,6 +35,9 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
+// components User
+import UserDrag from "./UserDrag";
+
 const task_item = [
   {
     id: "1",
@@ -472,7 +475,7 @@ const user_item = [
 ];
 
 
-export default class User extends Component {
+export default class User extends React.Component {
   constructor(props) {
     super(props);
 
@@ -484,6 +487,9 @@ export default class User extends Component {
           text: "offer / em 1",
           title: "offer / em 1",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "2",
@@ -491,6 +497,9 @@ export default class User extends Component {
           text: "offer / em 2",
           title: "offer / em 2",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "3",
@@ -498,6 +507,9 @@ export default class User extends Component {
           text: "offer / em 3",
           title: "offer / em 3",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "4",
@@ -505,6 +517,9 @@ export default class User extends Component {
           text: "offer / em 4",
           title: "offer / em 4",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "5",
@@ -512,6 +527,9 @@ export default class User extends Component {
           text: "offer / em 5",
           title: "offer / em 5",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "6",
@@ -519,6 +537,9 @@ export default class User extends Component {
           text: "offer / em 6",
           title: "offer / em 6",
           className: "task_waiting",
+          className2: "task_done",
+          className3: "task_note",
+          className4: "task_grey",
         },
       ],
       task_data2: [
@@ -528,6 +549,9 @@ export default class User extends Component {
           text: "inspection 1",
           title: "inspection 1",
           className: "task_waiting",
+          className2: "task_done",
+          className3: "task_note",
+          className4: "task_grey",
         },
         {
           id: "2",
@@ -535,6 +559,9 @@ export default class User extends Component {
           text: "inspection 2",
           title: "inspection 2",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "3",
@@ -542,6 +569,9 @@ export default class User extends Component {
           text: "inspection 3",
           title: "inspection 3",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "4",
@@ -549,6 +579,9 @@ export default class User extends Component {
           text: "inspection 4",
           title: "inspection 4",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "5",
@@ -556,6 +589,9 @@ export default class User extends Component {
           text: "inspection 5",
           title: "inspection 5",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "6",
@@ -563,6 +599,9 @@ export default class User extends Component {
           text: "inspection 6",
           title: "inspection 6",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "7",
@@ -570,6 +609,9 @@ export default class User extends Component {
           text: "inspection 7",
           title: "inspection 7",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
       ],
       task_data3: [
@@ -641,6 +683,9 @@ export default class User extends Component {
           text: "title work 1",
           title: "title work 1",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "2",
@@ -648,6 +693,9 @@ export default class User extends Component {
           text: "title work 2",
           title: "title work 2",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "3",
@@ -655,6 +703,9 @@ export default class User extends Component {
           text: "title work 3",
           title: "title work 3",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "4",
@@ -662,6 +713,9 @@ export default class User extends Component {
           text: "title work 4",
           title: "title work 4",
           className: "task_done",
+          className2: "task_note",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "5",
@@ -669,6 +723,9 @@ export default class User extends Component {
           text: "title work 5",
           title: "title work 5",
           className: "task_note",
+          className2: "task_done",
+          className3: "task_waiting",
+          className4: "task_grey",
         },
         {
           id: "6",
@@ -676,6 +733,9 @@ export default class User extends Component {
           text: "title work 6",
           title: "title work 6",
           className: "task_waiting",
+          className2: "task_done",
+          className3: "task_note",
+          className4: "task_grey",
         },
       ],
       task_data5: [
@@ -782,75 +842,880 @@ export default class User extends Component {
           className4: "task_grey",
         }
       ],
+
+      user_item: [
+        {
+          id: "1",
+          name: "Consultation",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "offer / em 1",
+              title: "offer / em 1",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "offer / em 2",
+              title: "offer / em 2",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "offer / em 3",
+              title: "offer / em 3",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "offer / em 4",
+              title: "offer / em 4",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_done",
+              text: "offer / em 5",
+              title: "offer / em 5",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_waiting",
+              text: "offer / em 6",
+              title: "offer / em 6",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "2",
+          name: "inspection",
+          task_data: [
+            {
+              id: "1",
+              name: "task_waiting",
+              text: "inspection 1",
+              title: "inspection 1",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "inspection 2",
+              title: "inspection 2",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "inspection 3",
+              title: "inspection 3",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "inspection 4",
+              title: "inspection 4",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_done",
+              text: "inspection 5",
+              title: "inspection 5",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_done",
+              text: "inspection 6",
+              title: "inspection 6",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "7",
+              name: "task_done",
+              text: "inspection 7",
+              title: "inspection 7",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "3",
+          name: "Offer",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "Call agent before writing PA (see if other offers, motivation, etc.)",
+              title: "Call agent before writing PA (see if other offers, motivation, etc.)",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "Write offer and all necessary docs [DOCUSIGN]",
+              title: "Write offer and all necessary docs [DOCUSIGN]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "Send buyer all docs for signatures (PA, BLC sheet, Tax sheet, Disclosures) [DOCUSIGN]",
+              title: "Send buyer all docs for signatures (PA, BLC sheet, Tax sheet, Disclosures) [DOCUSIGN]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_note",
+              text: "Share signed docs AND financing docs with listing agent [DOCUSIGN]",
+              title: "Share signed docs AND financing docs with listing agent [DOCUSIGN]",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_note",
+              text: "Call, text or email to confirm LA (listing agent) received offer and docs",
+              title: "Call, text or email to confirm LA (listing agent) received offer and docs",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_note",
+              text: "Counter offer (if applicable) until acceptance [DOCUSIGN]",
+              title: "Counter offer (if applicable) until acceptance [DOCUSIGN]",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "4",
+          name: "title work",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "title work 1",
+              title: "title work 1",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "title work 2",
+              title: "title work 2",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "title work 3",
+              title: "title work 3",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "title work 4",
+              title: "title work 4",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_note",
+              text: "title work 5",
+              title: "title work 5",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_waiting",
+              text: "title work 6",
+              title: "title work 6",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "5",
+          name: "Financing",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "Appraisal Day mm/dd/yyyy at hh:mm am/pm [GOOGLE CAL]",
+              title: "Appraisal Day mm/dd/yyyy at hh:mm am/pm [GOOGLE CAL]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "Confirm value and condition are accepted 10 days before closing",
+              title: "Confirm value and condition are accepted 10 days before closing",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_note",
+              text: "Notify buyers if appraisal is good or not (lender does it to, but we just do it to follow up with buyers)",
+              title: "Notify buyers if appraisal is good or not (lender does it to, but we just do it to follow up with buyers)",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_waiting",
+              text: "Confirm buyer signs CD (closing disclosure) 3 days before closing TRID requirement [GCAL]",
+              title: "Confirm buyer signs CD (closing disclosure) 3 days before closing TRID requirement [GCAL]",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_waiting",
+              text: "Receive clear to close from lender",
+              title: "Receive clear to close from lender",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_waiting",
+              text: "Confirm lender sends over final docs to title company",
+              title: "Confirm lender sends over final docs to title company",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "6",
+          name: "Closing",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "Ask buyer if they can close in the afternoon (2 weeks before closing)",
+              title: "Ask buyer if they can close in the afternoon (2 weeks before closing)",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "Ask LA if they can close in the afternoon after buyer is good (2 weeks before closing)",
+              title: "Ask LA if they can close in the afternoon after buyer is good (2 weeks before closing)",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "Schedule closing with title company [GMAIL]",
+              title: "Schedule closing with title company [GMAIL]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "Receive closing confirmation from title company and add to DocuSign [GMAIL] [DOCUSIGN]",
+              title: "Receive closing confirmation from title company and add to DocuSign [GMAIL] [DOCUSIGN]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+          ],
+        },
+      ],
+
+      task_item: [
+        {
+          id: "1",
+          name: "Consultation",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "offer / em 1",
+              title: "offer / em 1",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "offer / em 2",
+              title: "offer / em 2",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "offer / em 3",
+              title: "offer / em 3",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "offer / em 4",
+              title: "offer / em 4",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_done",
+              text: "offer / em 5",
+              title: "offer / em 5",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_waiting",
+              text: "offer / em 6",
+              title: "offer / em 6",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "2",
+          name: "inspection",
+          task_data: [
+            {
+              id: "1",
+              name: "task_waiting",
+              text: "inspection 1",
+              title: "inspection 1",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "inspection 2",
+              title: "inspection 2",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "inspection 3",
+              title: "inspection 3",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "inspection 4",
+              title: "inspection 4",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_done",
+              text: "inspection 5",
+              title: "inspection 5",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_done",
+              text: "inspection 6",
+              title: "inspection 6",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "7",
+              name: "task_done",
+              text: "inspection 7",
+              title: "inspection 7",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "3",
+          name: "Offer",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "Call agent before writing PA (see if other offers, motivation, etc.)",
+              title: "Call agent before writing PA (see if other offers, motivation, etc.)",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "Write offer and all necessary docs [DOCUSIGN]",
+              title: "Write offer and all necessary docs [DOCUSIGN]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "Send buyer all docs for signatures (PA, BLC sheet, Tax sheet, Disclosures) [DOCUSIGN]",
+              title: "Send buyer all docs for signatures (PA, BLC sheet, Tax sheet, Disclosures) [DOCUSIGN]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_note",
+              text: "Share signed docs AND financing docs with listing agent [DOCUSIGN]",
+              title: "Share signed docs AND financing docs with listing agent [DOCUSIGN]",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_note",
+              text: "Call, text or email to confirm LA (listing agent) received offer and docs",
+              title: "Call, text or email to confirm LA (listing agent) received offer and docs",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_note",
+              text: "Counter offer (if applicable) until acceptance [DOCUSIGN]",
+              title: "Counter offer (if applicable) until acceptance [DOCUSIGN]",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "4",
+          name: "title work",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "title work 1",
+              title: "title work 1",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "title work 2",
+              title: "title work 2",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "title work 3",
+              title: "title work 3",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "title work 4",
+              title: "title work 4",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_note",
+              text: "title work 5",
+              title: "title work 5",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_waiting",
+              text: "title work 6",
+              title: "title work 6",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "5",
+          name: "Financing",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "Appraisal Day mm/dd/yyyy at hh:mm am/pm [GOOGLE CAL]",
+              title: "Appraisal Day mm/dd/yyyy at hh:mm am/pm [GOOGLE CAL]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "Confirm value and condition are accepted 10 days before closing",
+              title: "Confirm value and condition are accepted 10 days before closing",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_note",
+              text: "Notify buyers if appraisal is good or not (lender does it to, but we just do it to follow up with buyers)",
+              title: "Notify buyers if appraisal is good or not (lender does it to, but we just do it to follow up with buyers)",
+              className: "task_note",
+              className2: "task_done",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_waiting",
+              text: "Confirm buyer signs CD (closing disclosure) 3 days before closing TRID requirement [GCAL]",
+              title: "Confirm buyer signs CD (closing disclosure) 3 days before closing TRID requirement [GCAL]",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+            {
+              id: "5",
+              name: "task_waiting",
+              text: "Receive clear to close from lender",
+              title: "Receive clear to close from lender",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+            {
+              id: "6",
+              name: "task_waiting",
+              text: "Confirm lender sends over final docs to title company",
+              title: "Confirm lender sends over final docs to title company",
+              className: "task_waiting",
+              className2: "task_done",
+              className3: "task_note",
+              className4: "task_grey",
+            },
+          ],
+        },
+        {
+          id: "6",
+          name: "Closing",
+          task_data: [
+            {
+              id: "1",
+              name: "task_done",
+              text: "Ask buyer if they can close in the afternoon (2 weeks before closing)",
+              title: "Ask buyer if they can close in the afternoon (2 weeks before closing)",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "2",
+              name: "task_done",
+              text: "Ask LA if they can close in the afternoon after buyer is good (2 weeks before closing)",
+              title: "Ask LA if they can close in the afternoon after buyer is good (2 weeks before closing)",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "3",
+              name: "task_done",
+              text: "Schedule closing with title company [GMAIL]",
+              title: "Schedule closing with title company [GMAIL]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+            {
+              id: "4",
+              name: "task_done",
+              text: "Receive closing confirmation from title company and add to DocuSign [GMAIL] [DOCUSIGN]",
+              title: "Receive closing confirmation from title company and add to DocuSign [GMAIL] [DOCUSIGN]",
+              className: "task_done",
+              className2: "task_note",
+              className3: "task_waiting",
+              className4: "task_grey",
+            },
+          ],
+        },
+      ],
       // shouldCopyOnOutsideDrop: false,
       height: 0,
       height2: 0,
       value: "0",
       expanded: 'panel1',
+      // handleAddNewTask: (data) => {
+      //   console.log(data);
+      // }
+
+      valueTest: 'tet',
     };
     // const [value, setValue] = React.useState('1');
 
     // const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     //   setValue(newValue);
     // };
+    
   }
 
   state = {
     disabled: false,
+    
   };
   toggleDraggable = () =>
     this.setState((prevState) => ({ disabled: !prevState.disabled }));
   toggleDraggable2 = () =>
     this.setState((prevState) => ({ disabled2: !prevState.disabled2 }));
 
+  handleAddNewTask = (data, data_key) => {
+    
+    if(data_key == 'task_data1'){
+      this.setState({ task_data1: data});
+      this.setState(prevState => {
+        let task_data = Object.assign({}, prevState.task_item); 
+        task_data[0].task_data = data;                                  
+        return { task_data };                                
+      })
+    } 
+    if(data_key == 'task_data2'){
+      this.setState({ task_data2: data});
+      this.setState(prevState => {
+        let task_data = Object.assign({}, prevState.task_item); 
+        task_data[1].task_data = data;                                
+        return { task_data };      
+      })                         
+    } 
+    if(data_key == 'task_data3'){
+      this.setState({ task_data3: data});
+      this.setState(prevState => {
+        let task_data = Object.assign({}, prevState.task_item);  
+        task_data[2].task_data = data;                                 
+        return { task_data };                         
+      })
+    } 
+    if(data_key == 'task_data4'){
+      this.setState({ task_data4: data});
+      this.setState(prevState => {
+        let task_data = Object.assign({}, prevState.task_item); 
+        task_data[3].task_data = data;                                    
+        return { task_data };                              
+      })
+    } 
+    if(data_key == 'task_data5'){
+      this.setState({ task_data5: data});
+      this.setState(prevState => {
+        let task_data = Object.assign({}, prevState.task_item); 
+        task_data[4].task_data = data;                                   
+        return { task_data };                                
+      })
+    } 
+    if(data_key == 'task_data6'){
+      this.setState({ task_data6: data});
+      this.setState(prevState => {
+        let task_data = Object.assign({}, prevState.task_item); 
+        task_data[5].task_data = data;                                      
+        return { task_data };                                
+      })
+    } 
+
+  }
+  
   render = () => {
     // const [height, setHeight] = useState(0);
-    const { disabled, disabled2 } = this.state;
+    const { disabled, disabled2, task_item } = this.state;
     // const [listTask, setListTask] = useState('task_data');
 
     const externalNodeType = "yourNodeType";
     const { shouldCopyOnOutsideDrop } = this.state;
 
-    const Accordion = styled((props: AccordionProps) => (
-      <MuiAccordion disableGutters elevation={0} square {...props} />
-    ))(({ theme }) => ({
-      border: `1px solid ${theme.palette.divider}`,
-      '&:not(:last-child)': {
-        borderBottom: 0,
-      },
-      '&:before': {
-        display: 'none',
-      },
-    }));
-    const AccordionSummary = styled((props: AccordionSummaryProps) => (
-      <MuiAccordionSummary
-        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-        {...props}
-      />
-    ))(({ theme }) => ({
-      backgroundColor:
-        theme.palette.mode === 'dark'
-          ? 'rgba(255, 255, 255, .05)'
-          : 'rgba(0, 0, 0, .03)',
-      flexDirection: 'row-reverse',
-      '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-        transform: 'rotate(90deg)',
-      },
-      '& .MuiAccordionSummary-content': {
-        marginLeft: theme.spacing(1),
-      },
-    }));
     
-    const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-      padding: theme.spacing(2),
-      borderTop: '1px solid rgba(0, 0, 0, .125)',
-    }));
-
-    // const User = (props) => {
     const handleChange =
       (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
         this.setState({ expanded: isExpanded ? panel : false });
       };
+
+    
     return (
       <div className="user-container">
         <div className="user-content">
@@ -861,6 +1726,8 @@ export default class User extends Component {
             </div>
 
             <div className="user-info-drap">
+              {/* <UserDrag user_item={this.state.user_item}/> */}
+
               <Draggable disabled={disabled} bounds="parent">
                 <div className={!disabled ? "draggable" : null}>
                   <div className="user-toggle">
@@ -947,7 +1814,7 @@ export default class User extends Component {
                             // aria-label="scrollable auto tabs example"
                           >
                             <Tab label="Full Task" value="0" />
-                            {task_item.map((task_card, i) => {
+                            {this.state.task_item.map((task_card, i) => {
                               return (
                                 <Tab
                                   label={task_card.name}
@@ -959,7 +1826,7 @@ export default class User extends Component {
                         </Box>
                         <TabPanel value="0">
                           <div className="item-list">
-                            {task_item.map((task_card, i) => {
+                            {this.state.task_item.map((task_card, i) => {
                               return (
                                 <div className="item-card">
                                   <div className="item-card-header">
@@ -1151,7 +2018,7 @@ export default class User extends Component {
                             })}
                           </div>
                         </TabPanel>
-                        {task_item.map((task_card, i) => {
+                        {this.state.task_item.map((task_card, i) => {
                           return (
                             <TabPanel value={task_card.id}>
                               <div className="item-card-header">
@@ -1201,22 +2068,22 @@ export default class User extends Component {
                                   <div className={task_card.className}>
                                     <div style={{ height: 500 }}>
                                       {task_card.id == 1 && (
-                                        <Tree data={this.state.task_data1} />
+                                        <Tree data={this.state.task_data1} task_key={'task_data1'} handleAddNewTask={this.handleAddNewTask} />
                                       )}
                                       {task_card.id == 2 && (
-                                        <Tree data={this.state.task_data2} />
+                                        <Tree data={this.state.task_data2} task_key={'task_data2'} handleAddNewTask={this.handleAddNewTask} />
                                       )}
                                       {task_card.id == 3 && (
-                                        <Tree data={this.state.task_data3} />
+                                        <Tree data={this.state.task_data3} task_key={'task_data3'} handleAddNewTask={this.handleAddNewTask} />
                                       )}
                                       {task_card.id == 4 && (
-                                        <Tree data={this.state.task_data4} />
+                                        <Tree data={this.state.task_data4} task_key={'task_data4'} handleAddNewTask={this.handleAddNewTask} />
                                       )}
                                       {task_card.id == 5 && (
-                                        <Tree data={this.state.task_data5} />
+                                        <Tree data={this.state.task_data5} task_key={'task_data5'} handleAddNewTask={this.handleAddNewTask} />
                                       )}
                                       {task_card.id == 6 && (
-                                        <Tree data={this.state.task_data6} />
+                                        <Tree data={this.state.task_data6} task_key={'task_data6'} handleAddNewTask={this.handleAddNewTask} />
                                       )}
                                     </div>
                                   </div>

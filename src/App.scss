@@ -1092,7 +1092,7 @@ h4.inspection {
     border-radius: 5px;
     background: rgba(204, 204, 204, 0.3098039216);
     margin: 5px;
-    min-height: 165px;
+    min-height: 205px;
     display: flex;
     flex-direction: column;
 
@@ -1123,24 +1123,34 @@ h4.inspection {
 .content-task-node {
   margin: 20px;
 
-  .task_done {
-    .rst__moveHandle {
-      background: $task_done;
-    }
-    
+  
+}
+.task_done {
+  .rst__moveHandle {
+    background: $task_done;
   }
-  .task_note {
-    .rst__moveHandle {
-      background: $task_note;
-    }
-    
+  
+}
+.task_note {
+  .rst__moveHandle {
+    background: $task_note;
   }
-  .task_waiting {
-    .rst__moveHandle {
-      background: $task_waiting;
-    }
-    
+  
+}
+.task_waiting {
+  .rst__moveHandle {
+    background: $task_waiting;
   }
+  
+}
+.task_grey{
+  .rst__moveHandle {
+    background: $task_grey;
+  }
+  
+}
+.rst__virtualScrollOverride>div {
+  margin-top: 40px;
 }
 
 span.rst__rowTitle {
