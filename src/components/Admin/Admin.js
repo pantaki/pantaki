@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SortableTree from '@nosferatu500/react-sortable-tree';
 import '@nosferatu500/react-sortable-tree/style.css';
+import './Admin.scss';
 import { MdSettings, MdAccountCircle, MdCalendarMonth, MdAndroid, MdFlutterDash } from "react-icons/md";
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';

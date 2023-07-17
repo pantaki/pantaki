@@ -369,6 +369,9 @@ function Tree(props) {
                         rowInfo.node.className2
                       }
                       style={{ "--i": 1 }}
+                      data-value={
+                        rowInfo.node.className2
+                      }
                     >
                       <MdAccountCircle />
                     </li>
