@@ -44,17 +44,17 @@ export default function UserAddNew(props) {
     var taskSave = '';
     console.log('value: ', value)
     if (currentIndex === -1) {
-      console.log('add')
+  
       newChecked.push(value);
       taskSave = handleAddUser(value)
     } else {
       newChecked.splice(currentIndex, 1);
-      console.log('del')
+     
       taskSave = deleteById(value + 10);
     }
     
     setChecked(newChecked);
-    setListUser1(taskSave);
+    setListUser1(taskSave); 
 
   };
 

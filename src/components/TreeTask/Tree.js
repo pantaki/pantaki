@@ -69,8 +69,6 @@ function Tree(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // console.log(props.handleAddNewTask);
-
   const style = {
     position: "absolute",
     top: "50%",
@@ -87,12 +85,80 @@ function Tree(props) {
     // setNoteStatus();
     handleClose();
   }
-  function handleChangeStatus (data1) {
-    // setTreeData();
+  function handleChangeStatus (data1, key) {
+    const filtered = treeData.filter(treeDatas => {
+      return treeDatas.id === data1.node.id;
+    });
+    const editedTreeData = treeData.map((task) => {
+      // if this task has the same ID as the edited task
+      if (data1.node.id === task.id) {
+        const keyClass = sortClass(key)
+        return { ...task, 
+          name: keyClass.name,
+          className: keyClass.className,
+          className2: keyClass.className2,
+          className3: keyClass.className3,
+          className4: keyClass.className4,
+        };
+      }
+      return task;
+    });
+    setTreeData(editedTreeData);
 
-    console.log('data', data1);
+    handleNewTask.handleAddNewTask(editedTreeData, handleNewTask.task_key);
+  }
+
+  function sortClass(className){
+
+    switch(className) {
+      case 'task_done':
+          return {
+            name: 'task_done',
+            className: 'task_done',
+            className2: 'task_note',
+            className3: 'task_waiting',
+            className4: 'task_grey',
+          }
+        break;
+      case 'task_note':
+        return {
+          name: 'task_note',
+          className: 'task_note',
+          className2: 'task_done',
+          className3: 'task_waiting',
+          className4: 'task_grey',
+        }
+        break;
+      case 'task_waiting':
+        return {
+          name: 'task_waiting',
+          className: 'task_waiting',
+          className2: 'task_done',
+          className3: 'task_note',
+          className4: 'task_grey',
+        }
+      default:
+        return {
+          name: 'task_grey',
+          className: 'task_grey',
+          className2: 'task_done',
+          className3: 'task_note',
+          className4: 'task_waiting',
+        }
+    }
   }
   
+  function updateStateTreeData (data1)  {
+    const editedTreeData = treeData.map((task) => {
+      // if this task has the same ID as the edited task
+      if (data1.node.id === task.id) {
+        //
+        return { ...task, text: 'newName', name: 'task_waiting' };
+      }
+      return task;
+    });
+    setTreeData(editedTreeData);
+  };
 
   function createNode(props) {
     const value = inputEl.current.value;
@@ -103,7 +169,7 @@ function Tree(props) {
     }
 
     let newTree = addNodeUnderParent({
-      treeData: treeData,
+      treeData: treeData, 
       parentKey: null,
       expandParent: true,
       getNodeKey,
@@ -422,7 +488,7 @@ function Tree(props) {
                     </li>
                   )} */}
                     <li
-                      onClick={handleChangeStatus(rowInfo)}
+                      onClick={() => handleChangeStatus(rowInfo, rowInfo.node.className2)}
                       className={rowInfo.node.className2}
                       style={{ "--i": 1 }}
                       data-value={rowInfo.node.className2}
@@ -430,7 +496,7 @@ function Tree(props) {
                       <MdAccountCircle />
                     </li>
                     <li
-                      onClick={handleChangeStatus(rowInfo)}
+                      onClick={() => handleChangeStatus(rowInfo, rowInfo.node.className3)}
                       dataNote={rowInfo.node}
                       className={rowInfo.node.className3}
                       style={{ "--i": 2 }}
@@ -438,7 +504,7 @@ function Tree(props) {
                       <MdCalendarMonth />
                     </li>
                     <li 
-                      onClick={handleChangeStatus(rowInfo)}
+                      onClick={() => handleChangeStatus(rowInfo, rowInfo.node.className4)}
                       className={rowInfo.node.className4}
                       style={{ "--i": 3 }}
                     >
