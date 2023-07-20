@@ -93,5 +93,6 @@ npm install @mui/system @emotion/react @emotion/styled
 npm install react-icons --save
 
 npm install --save-exact @jstarpl/react-contextmenu@2.15.0
+npm install --save-exact react-sortable-tree@2.8.0
 
 

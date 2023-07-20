@@ -32,61 +32,42 @@ export default function UserAddNew(props) {
   const [addUser, setaddUser] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [checked, setChecked] = React.useState([1]);
+  const [checked, setChecked] = React.useState([]);
   const [ListUser, setListUser] = React.useState([1, 2, 3,4,5,6]);
   const [ListUser1, setListUser1] = React.useState(props.dataUser);
-//   console.log(props)
+
+
 
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
-
+    var taskSave = '';
+    console.log('value: ', value)
     if (currentIndex === -1) {
+      console.log('add')
       newChecked.push(value);
+      taskSave = handleAddUser(value)
     } else {
       newChecked.splice(currentIndex, 1);
+      console.log('del')
+      taskSave = deleteById(value + 10);
     }
-    // setListUser(newChecked);
+    
     setChecked(newChecked);
-    // console.log(newChecked)
-    handleAddUser(value)
-    // props.handleAddNewUser( newChecked);
+    setListUser1(taskSave);
 
   };
 
-  const removeSecond = (value) => {
-    setListUser1((current) =>
-      current.filter((fruit) => fruit.id !== value)
-    );
-  };
+  const deleteById = id => {
+    const newListUser1 = [...ListUser1];
+    const newListUser2 = oldValues => {
+      return oldValues.filter(newListUser1 => newListUser1.id !== id)
+    }
+    return newListUser2;
+  }
 
   const handleAddUser = (userid) => {
-    // let addUser = {
-    //     id: userid + 10,
-    //     name: "John Doe " + userid + 10,
-    //     email: "johndoe@gmail.com",
-    //     phone: "313-313-3130",
-    //     role: "Buyer 1",
-    //     role_key: "buyer_1",
-    //     type: "B1",
-        
-    //   }
-    // {ListUser1.map((value) => {
-    //     console.log('value',value.id);
-    //     console.log('userid',userid);
-    //     if(value.id === userid) {
-    //         removeSecond(userid);
-    //         props.handleAddNewUser( ListUser1);
-    //     } else {
-            
-    //         //   ListUser1.push(addUser);
-    //         //   props.handleAddNewUser( ListUser1);
-    //     }
-
-    // })}
-
-    console.log('ListUser1', ListUser1);
-    
+    const newListUser1 = [...ListUser1]
     let addUser = {
         id: userid + 10,
         name: "John Doe " + userid + 10,
@@ -95,11 +76,18 @@ export default function UserAddNew(props) {
         role: "Buyer 1",
         role_key: "buyer_1",
         type: "B1",
+        status: "yes"
         
       }
-      ListUser1.push(addUser);
-      props.handleAddNewUser( ListUser1);
-    //   setListUser1(addUser.ListUser1);
+      newListUser1.push(addUser);
+      return newListUser1;
+      
+
+  }
+
+  const handleSave = () => {
+    props.handleAddNewUser( ListUser1);
+    handleClose();
   }
 
   return (
@@ -110,7 +98,7 @@ export default function UserAddNew(props) {
       {/* <Button  className="user-list-card-new" onClick={handleOpen}>+ Person</Button> */}
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleSave}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -154,9 +142,9 @@ export default function UserAddNew(props) {
                 );
               })}
               <div className="button-modal">
-                {/* <Button variant="contained" onClick={handleClose}>Save</Button> */}
+                <Button variant="contained" onClick={handleSave}>Save</Button>
                 <Button variant="contained" onClick={handleClose}>Close</Button>
-            </div>
+              </div>
             </List>
             
             

@@ -3,19 +3,24 @@ import SortableTree, {
   addNodeUnderParent,
   removeNodeAtPath,
   changeNodeAtPath,
-  toggleExpandedForAll
+  toggleExpandedForAll,
 } from "@nosferatu500/react-sortable-tree";
 import "@nosferatu500/react-sortable-tree/style.css";
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import DeleteIcon from '@mui/icons-material/Delete';
-import InfoIcon from '@mui/icons-material/Info';
-import AddIcon from '@mui/icons-material/Add';
-import UpgradeIcon from '@mui/icons-material/Upgrade';
-import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import DeleteIcon from "@mui/icons-material/Delete";
+import InfoIcon from "@mui/icons-material/Info";
+import AddIcon from "@mui/icons-material/Add";
+import UpgradeIcon from "@mui/icons-material/Upgrade";
+import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 // import CustomTheme from 'react-sortable-tree-theme-minimal';
+
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+
 import {
   MdSettings,
   MdAccountCircle,
@@ -23,7 +28,6 @@ import {
   MdAndroid,
   MdFlutterDash,
 } from "react-icons/md";
-
 
 const seed = [
   {
@@ -43,15 +47,14 @@ const seed = [
           {
             id: "234",
             title: "Task1 2 1",
-            subtitle: "ipsum"
+            subtitle: "ipsum",
           },
-          { id: "567", title: "Task1 2 2", subtitle: "zzz" }
-        ]
-      }
-    ]
-  }
+          { id: "567", title: "Task1 2 2", subtitle: "zzz" },
+        ],
+      },
+    ],
+  },
 ];
-
 
 function Tree(props) {
   const [searchString, setSearchString] = useState("");
@@ -61,11 +64,36 @@ function Tree(props) {
   // const [handleAddNewTask, sethandleAddNewTask] = useState(props.handleAddNewTask());
   const inputEl = useRef();
   const handleNewTask = props;
+  const [open, setOpen] = React.useState(false);
+  const [noteStatus, setNoteStatus] = React.useState(['task_waiting']);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // console.log(props.handleAddNewTask);
 
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    // bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+    backgroundColor: "#fff5c7"
+  };
+  function handleReply () {
+    // setNoteStatus();
+    handleClose();
+  }
+  function handleChangeStatus (data1) {
+    // setTreeData();
 
+    console.log('data', data1);
+  }
   
+
   function createNode(props) {
     const value = inputEl.current.value;
 
@@ -83,21 +111,17 @@ function Tree(props) {
         id: "123",
         title: value,
         name: "task_grey",
-        className: 'task_grey',
+        className: "task_grey",
         className2: "task_done",
         className3: "task_note",
         className4: "task_waiting",
-        
       },
       // className: 'task-grey'
     });
 
-    
-
     // handleAddNewTask('test123');
     handleNewTask.handleAddNewTask(newTree.treeData, handleNewTask.task_key);
     setTreeData(newTree.treeData);
-    
 
     inputEl.current.value = "";
   }
@@ -109,7 +133,7 @@ function Tree(props) {
     const value = inputEl.current.value;
 
     if (value === "") {
-      inputEl.current.focus();
+      inputEl.current.focus(); 
       return;
     }
 
@@ -119,8 +143,8 @@ function Tree(props) {
       getNodeKey,
       newNode: {
         children,
-        title: value
-      }
+        title: value,
+      },
     });
 
     setTreeData(newTree);
@@ -146,8 +170,8 @@ function Tree(props) {
       expandParent: true,
       getNodeKey,
       newNode: {
-        title: value
-      }
+        title: value,
+      },
     });
 
     setTreeData(newTree.treeData);
@@ -174,8 +198,8 @@ function Tree(props) {
       expandParent: true,
       getNodeKey,
       newNode: {
-        title: value
-      }
+        title: value,
+      },
     });
 
     setTreeData(newTree.treeData);
@@ -186,14 +210,14 @@ function Tree(props) {
 
   function removeNode(rowInfo) {
     const { path } = rowInfo;
-    if(window.confirm('Are you sure you wish to delete this item?'))
-    setTreeData(
-      removeNodeAtPath({
-        treeData,
-        path,
-        getNodeKey
-      })
-    );
+    if (window.confirm("Are you sure you wish to delete this item?"))
+      setTreeData(
+        removeNodeAtPath({
+          treeData,
+          path,
+          getNodeKey,
+        })
+      );
   }
 
   function updateTreeData(treeData) {
@@ -204,7 +228,7 @@ function Tree(props) {
     setTreeData(
       toggleExpandedForAll({
         treeData,
-        expanded
+        expanded,
       })
     );
   }
@@ -247,41 +271,38 @@ function Tree(props) {
   const getNodeKey = ({ treeIndex }) => treeIndex;
 
   const handleAddNewTask1 = () => {
-    this.props.handleAddNewTask()
-  } 
+    this.props.handleAddNewTask();
+  };
   return (
     <div>
       {/* <div style={{ flex: "0 0 auto", padding: "0 15px" }}> */}
-        {/* <h3>Test Task Drag New</h3> */}
-        {/* <input ref={inputEl} type="text" /> */}
-        {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
-        {/* <br /> */}
-        {/* <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button> */}
-        {/* <br /> */}
-        {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button> */}
-        {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button> */}
-        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
-        {/* <form style={{ display: "inline-block" }} onSubmit={(event) => { event.preventDefault(); }} > */}
-          {/* <label htmlFor="find-box"> */}
-          
-            {/* <TextField label="Search" variant="standard" id="find-box" value={searchString} onChange={(event) => setSearchString(event.target.value)} /> */}
-          {/* </label> */}
+      {/* <h3>Test Task Drag New</h3> */}
+      {/* <input ref={inputEl} type="text" /> */}
+      {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
+      {/* <br /> */}
+      {/* <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button> */}
+      {/* <br /> */}
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button> */}
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button> */}
+      {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+      {/* <form style={{ display: "inline-block" }} onSubmit={(event) => { event.preventDefault(); }} > */}
+      {/* <label htmlFor="find-box"> */}
 
-          {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="button" disabled={!searchFoundCount} onClick={selectPrevMatch} > &lt; </Button> */}
+      {/* <TextField label="Search" variant="standard" id="find-box" value={searchString} onChange={(event) => setSearchString(event.target.value)} /> */}
+      {/* </label> */}
 
-          {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="submit" disabled={!searchFoundCount} onClick={selectNextMatch} > &gt; </Button> */}
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="button" disabled={!searchFoundCount} onClick={selectPrevMatch} > &lt; </Button> */}
 
-          {/* <span> &nbsp; {searchFoundCount > 0 ? searchFocusIndex + 1 : 0} &nbsp;/&nbsp; {searchFoundCount || 0} </span> */}
-        {/* </form> */}
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="submit" disabled={!searchFoundCount} onClick={selectNextMatch} > &gt; </Button> */}
+
+      {/* <span> &nbsp; {searchFoundCount > 0 ? searchFocusIndex + 1 : 0} &nbsp;/&nbsp; {searchFoundCount || 0} </span> */}
+      {/* </form> */}
       {/* </div> */}
 
-      
-      {props.type == 'showfull' && (
-
+      {props.type == "showfull" && (
         <div className="content-task-node">
-          <div style={{ height: "50vh" }} >
+          <div style={{ height: "50vh" }}>
             <SortableTree
-
               treeData={treeData}
               onChange={(treeData) => updateTreeData(treeData)}
               searchQuery={searchString}
@@ -294,40 +315,71 @@ function Tree(props) {
               }}
               // canDrag={({ node }) => !node.dragDisabled}
               canDrag={<AddIcon />}
-              generateNodeProps={({
-                node,
-                path,
-              }) => {
+              generateNodeProps={({ node, path }) => {
                 return {
                   className: `${node.className}`,
                 };
               }}
-            />    
-          </div>                               
-        </div>                               
-                                              
+            />
+          </div>
+        </div>
       )}
       {/* {props.type == 'show1' && ( */}
-        <div className="content-task-node">
-          <div style={{ height: "50vh" }} >
-             
-            <SortableTree
-              treeData={treeData}
-              onChange={(treeData) => updateTreeData(treeData)}
-              searchQuery={searchString}
-              searchFocusOffset={searchFocusIndex}
-              searchFinishCallback={(matches) => {
-                setSearchFoundCount(matches.length);
-                setSearchFocusIndex(
-                  matches.length > 0 ? searchFocusIndex % matches.length : 0
-                );
-              }}
-              // canDrag={({ node }) => !node.dragDisabled}
-              canDrag={<AddIcon />}
-              generateNodeProps={( rowInfo) => ({
-                // title: rowInfo.node.label,
-                // subtitle: rowInfo.node.subTitle,
-                buttons: [
+      <div className="content-task-node">
+        <div style={{ height: "50vh" }}>
+          <SortableTree
+            treeData={treeData}
+            onChange={(treeData) => updateTreeData(treeData)}
+            searchQuery={searchString}
+            searchFocusOffset={searchFocusIndex}
+            searchFinishCallback={(matches) => {
+              setSearchFoundCount(matches.length);
+              setSearchFocusIndex(
+                matches.length > 0 ? searchFocusIndex % matches.length : 0
+              );
+            }}
+            // canDrag={({ node }) => !node.dragDisabled}
+            canDrag={<AddIcon />}
+            generateNodeProps={(rowInfo) => ({
+              
+              title: rowInfo.node.label,
+              subtitle: rowInfo.node.name == "task_note" && [
+                <div className="note-subtitle">
+                  {/* <p>' rowInfo.node.subTitle'</p> */}
+                  <span className="note-change-status" onClick={handleOpen}>
+                    Change Status
+                  </span>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style}>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h2"
+                      >
+                        07/19/2023: Taki Note:
+                        
+                      </Typography>
+                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+
+                      </Typography>
+                      <div className="button-modal">
+                        
+                        <Button variant="contained" onClick={handleReply}>+ Reply</Button>
+                        <div className="status-note-status">{noteStatus == "task_waiting" && (
+                          <p><span className="status-note-status"></span>I read this comment</p>
+                        )}</div>
+                      </div>
+                    </Box>
+                  </Modal>
+                </div>,
+              ],
+              buttons: [
                 //   <div>
                 //     <Button
                 //       style={{ marginRight: "10px" }}
@@ -347,7 +399,7 @@ function Tree(props) {
                 //     </Button>
                 //     <Button style={{ marginRight: "10px" }} variant="outlined" label="Update" onClick={(event) => updateNode(rowInfo)}>
                 //       <UpgradeIcon /> Update
-                      
+
                 //     </Button>
                 //     <Button style={{ marginRight: "10px" }} variant="outlined" label="Delete" onClick={(event) => removeNode(rowInfo)}>
                 //       {/* Remove */}
@@ -364,60 +416,60 @@ function Tree(props) {
                 //   </div>
                 <div className="user-effects">
                   <ul>
+                    {/* {rowInfo.node.className2 == 'task_note' && (
+                    <li>
+
+                    </li>
+                  )} */}
                     <li
-                      className={
-                        rowInfo.node.className2
-                      }
+                      onClick={handleChangeStatus(rowInfo)}
+                      className={rowInfo.node.className2}
                       style={{ "--i": 1 }}
-                      data-value={
-                        rowInfo.node.className2
-                      }
+                      data-value={rowInfo.node.className2}
                     >
                       <MdAccountCircle />
                     </li>
                     <li
-                      className={
-                        rowInfo.node.className3
-                      }
+                      onClick={handleChangeStatus(rowInfo)}
+                      dataNote={rowInfo.node}
+                      className={rowInfo.node.className3}
                       style={{ "--i": 2 }}
                     >
                       <MdCalendarMonth />
                     </li>
-                    <li
-                      className={
-                        rowInfo.node.className4
-                      }
+                    <li 
+                      onClick={handleChangeStatus(rowInfo)}
+                      className={rowInfo.node.className4}
                       style={{ "--i": 3 }}
                     >
                       <MdAndroid />
                     </li>
-                    <li
-                      className={
-                        rowInfo.node.className
-                      }
-                      style={{ "--i": 4 }}
-                    >
+                    <li className={rowInfo.node.className} style={{ "--i": 4 }}>
                       {/* <MdSettings /> */}
                     </li>
                   </ul>
-                </div>
-                ],
-                className:  `${rowInfo.node.className}`,
-                style: {
-                  height: "50px"
-                }
-              })}
-            />    
+                </div>,
+              ],
+              className: `${rowInfo.node.className}`,
+              style: {
+                height: "50px",
+              },
+            })}
+          />
 
-            <div style={{ flex: "0 0 auto", padding: "0 15px" }}>  
-              <input ref={inputEl} type="text" />             
-              <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button>
-            </div>     
-          </div>   
-        </div>                                
+          <div style={{ flex: "0 0 auto", padding: "0 15px" }}>
+            <input ref={inputEl} type="text" />
+            <Button
+              style={{ margin: "10px" }}
+              variant="outlined"
+              onClick={createNode}
+            >
+              <LibraryAddIcon /> Task
+            </Button>
+          </div>
+        </div>
+      </div>
       {/* // )} */}
-        
-      
     </div>
   );
 }

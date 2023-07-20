@@ -847,49 +847,64 @@ export default class User extends React.Component {
 
       user_item: [
         {
-          id: "1",
+          id: 1,
           name: "John Doe",
           email: "johndoe@gmail.com",
           phone: "313-313-3130",
           role: "Buyer 1",
           role_key: "buyer_1",
           type: "B1",
+          status: "yes"
         },
         {
-          id: "2",
+          id: 2,
           name: "Jane Doe",
           email: "janedoe@gmail.com",
           phone: "313-313-3131",
           role: "Buyer 2",
           role_key: "buyer_2",
           type: "B2",
+          status: "yes"
         },
         {
-          id: "3",
+          id: 3,
           name: "Jim Schotts",
           email: "jimschotts@gmail.com",
           phone: "313-313-3133",
           role: "Inspector",
           role_key: "inspector",
           type: "B1",
+          status: "no"
         },
         {
-          id: "4",
+          id: 4,
           name: "Grand Lyons",
           email: "grandlyons@gmail.com",
           phone: "313-313-3134",
           role: "Leader",
           role_key: "leader",
           type: "F1",
+          status: "no"
         },
         {
-          id: "5",
+          id: 5,
           name: "Team Lyons",
           email: "teamlyons@gmail.com",
           phone: "313-313-3135",
           role: "Leader Team",
           role_key: "leader_team",
           type: "F2",
+          status: "no"
+        },
+        {
+          id: 6,
+          name: "Team Lyons",
+          email: "teamlyons@gmail.com",
+          phone: "313-313-3135",
+          role: "Leader Team",
+          role_key: "leader_team",
+          type: "F2",
+          status: "no"
         },
       ],
 
@@ -1356,18 +1371,6 @@ export default class User extends React.Component {
   handleAddNewUser = (newChecked) => {
     this.setState({ user_item: newChecked});
     console.log(newChecked);
-    // console.log(data_key);
-    
-    // if(data_key == 'task_data1'){
-    //   this.setState({ task_data1: data});
-    //   this.setState(prevState => {
-    //     let task_data = Object.assign({}, prevState.task_item); 
-    //     task_data[0].task_data = data;                                  
-    //     return { task_data };                                
-    //   })
-    // } 
-    
-
   }
   
   render = () => {
@@ -1420,7 +1423,7 @@ export default class User extends React.Component {
                                     <div className="user-email">
                                       <span>{user_value.email}</span>
                                     </div>
-                                    <div className="user-phone">
+                                    <div className="user-phone"> 
                                       <span>{user_value.phone}</span>
                                     </div>
                                     <div className="user-role">
