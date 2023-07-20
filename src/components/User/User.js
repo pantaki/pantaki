@@ -484,7 +484,7 @@ export default class User extends React.Component {
     this.state = {
       task_data1: [
         {
-          id: "1",
+          id: 1,
           name: "task_done",
           text: "offer / em 1",
           title: "offer / em 1",
@@ -494,7 +494,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "2",
+          id: 2,
           name: "task_done",
           text: "offer / em 2",
           title: "offer / em 2",
@@ -504,7 +504,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "3",
+          id: 3,
           name: "task_done",
           text: "offer / em 3",
           title: "offer / em 3",
@@ -514,7 +514,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "4",
+          id: 4,
           name: "task_done",
           text: "offer / em 4",
           title: "offer / em 4",
@@ -524,7 +524,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "5",
+          id: 5,
           name: "task_done",
           text: "offer / em 5",
           title: "offer / em 5",
@@ -534,7 +534,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "6",
+          id: 6,
           name: "task_waiting",
           text: "offer / em 6",
           title: "offer / em 6",
@@ -546,7 +546,7 @@ export default class User extends React.Component {
       ],
       task_data2: [
         {
-          id: "1",
+          id: 1,
           name: "task_waiting",
           text: "inspection 1",
           title: "inspection 1",
@@ -556,7 +556,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "2",
+          id: 2,
           name: "task_done",
           text: "inspection 2",
           title: "inspection 2",
@@ -566,7 +566,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "3",
+          id: 3,
           name: "task_done",
           text: "inspection 3",
           title: "inspection 3",
@@ -576,7 +576,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "4",
+          id: 4,
           name: "task_done",
           text: "inspection 4",
           title: "inspection 4",
@@ -586,7 +586,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "5",
+          id: 5,
           name: "task_done",
           text: "inspection 5",
           title: "inspection 5",
@@ -596,7 +596,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "6",
+          id: 6,
           name: "task_done",
           text: "inspection 6",
           title: "inspection 6",
@@ -606,7 +606,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "7",
+          id: 7,
           name: "task_done",
           text: "inspection 7",
           title: "inspection 7",
@@ -618,7 +618,7 @@ export default class User extends React.Component {
       ],
       task_data3: [
         {
-          id: "1",
+          id: 1,
           name: "task_done",
           text: "Call agent before writing PA (see if other offers, motivation, etc.)",
           title: "Call agent before writing PA (see if other offers, motivation, etc.)",
@@ -628,7 +628,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "2",
+          id: 2,
           name: "task_done",
           text: "Write offer and all necessary docs [DOCUSIGN]",
           title: "Write offer and all necessary docs [DOCUSIGN]",
@@ -638,7 +638,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "3",
+          id: 3,
           name: "task_done",
           text: "Send buyer all docs for signatures (PA, BLC sheet, Tax sheet, Disclosures) [DOCUSIGN]",
           title: "Send buyer all docs for signatures (PA, BLC sheet, Tax sheet, Disclosures) [DOCUSIGN]",
@@ -648,7 +648,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "4",
+          id: 4,
           name: "task_note",
           text: "Share signed docs AND financing docs with listing agent [DOCUSIGN]",
           title: "Share signed docs AND financing docs with listing agent [DOCUSIGN]",
@@ -658,7 +658,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "5",
+          id: 5,
           name: "task_note",
           text: "Call, text or email to confirm LA (listing agent) received offer and docs",
           title: "Call, text or email to confirm LA (listing agent) received offer and docs",
@@ -668,7 +668,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "6",
+          id: 6,
           name: "task_note",
           text: "Counter offer (if applicable) until acceptance [DOCUSIGN]",
           title: "Counter offer (if applicable) until acceptance [DOCUSIGN]",
@@ -680,7 +680,7 @@ export default class User extends React.Component {
       ],
       task_data4: [
         {
-          id: "1",
+          id: 1,
           name: "task_done",
           text: "title work 1",
           title: "title work 1",
@@ -690,7 +690,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "2",
+          id: 2,
           name: "task_done",
           text: "title work 2",
           title: "title work 2",
@@ -700,7 +700,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "3",
+          id: 3,
           name: "task_done",
           text: "title work 3",
           title: "title work 3",
@@ -710,7 +710,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "4",
+          id: 4,
           name: "task_done",
           text: "title work 4",
           title: "title work 4",
@@ -720,7 +720,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "5",
+          id: 5,
           name: "task_note",
           text: "title work 5",
           title: "title work 5",
@@ -730,7 +730,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "6",
+          id: 6,
           name: "task_waiting",
           text: "title work 6",
           title: "title work 6",
@@ -742,7 +742,7 @@ export default class User extends React.Component {
       ],
       task_data5: [
         {
-          id: "1",
+          id: 1,
           name: "task_done",
           text: "Appraisal Day mm/dd/yyyy at hh:mm am/pm [GOOGLE CAL]",
           title: "Appraisal Day mm/dd/yyyy at hh:mm am/pm [GOOGLE CAL]",
@@ -752,7 +752,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "2",
+          id: 2,
           name: "task_done",
           text: "Confirm value and condition are accepted 10 days before closing",
           title: "Confirm value and condition are accepted 10 days before closing",
@@ -762,7 +762,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "3",
+          id: 3,
           name: "task_note",
           text: "Notify buyers if appraisal is good or not (lender does it to, but we just do it to follow up with buyers)",
           title: "Notify buyers if appraisal is good or not (lender does it to, but we just do it to follow up with buyers)",
@@ -772,7 +772,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "4",
+          id: 4,
           name: "task_waiting",
           text: "Confirm buyer signs CD (closing disclosure) 3 days before closing TRID requirement [GCAL]",
           title: "Confirm buyer signs CD (closing disclosure) 3 days before closing TRID requirement [GCAL]",
@@ -782,7 +782,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "5",
+          id: 5,
           name: "task_waiting",
           text: "Receive clear to close from lender",
           title: "Receive clear to close from lender",
@@ -792,7 +792,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "6",
+          id: 6,
           name: "task_waiting",
           text: "Confirm lender sends over final docs to title company",
           title: "Confirm lender sends over final docs to title company",
@@ -804,7 +804,7 @@ export default class User extends React.Component {
       ],
       task_data6: [
         {
-          id: "1",
+          id: 1,
           name: "task_done",
           text: "Ask buyer if they can close in the afternoon (2 weeks before closing)",
           title: "Ask buyer if they can close in the afternoon (2 weeks before closing)",
@@ -814,7 +814,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "2",
+          id: 2,
           name: "task_done",
           text: "Ask LA if they can close in the afternoon after buyer is good (2 weeks before closing)",
           title: "Ask LA if they can close in the afternoon after buyer is good (2 weeks before closing)",
@@ -824,7 +824,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "3",
+          id: 3,
           name: "task_done",
           text: "Schedule closing with title company [GMAIL]",
           title: "Schedule closing with title company [GMAIL]",
@@ -834,7 +834,7 @@ export default class User extends React.Component {
           className4: "task_grey",
         },
         {
-          id: "4",
+          id: 4,
           name: "task_done",
           text: "Receive closing confirmation from title company and add to DocuSign [GMAIL] [DOCUSIGN]",
           title: "Receive closing confirmation from title company and add to DocuSign [GMAIL] [DOCUSIGN]",
@@ -1365,7 +1365,7 @@ export default class User extends React.Component {
         return { task_data };                                
       })
     } 
-
+ 
   }
 
   handleAddNewUser = (newChecked) => {

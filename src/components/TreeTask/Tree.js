@@ -24,7 +24,7 @@ import Modal from "@mui/material/Modal";
 import {
   MdSettings,
   MdAccountCircle,
-  MdCalendarMonth,
+  MdCalendarMonth, 
   MdAndroid,
   MdFlutterDash,
 } from "react-icons/md";
@@ -86,26 +86,67 @@ function Tree(props) {
     handleClose();
   }
   function handleChangeStatus (data1, key) {
-    const filtered = treeData.filter(treeDatas => {
-      return treeDatas.id === data1.node.id;
-    });
-    const editedTreeData = treeData.map((task) => {
-      // if this task has the same ID as the edited task
-      if (data1.node.id === task.id) {
-        const keyClass = sortClass(key)
-        return { ...task, 
-          name: keyClass.name,
-          className: keyClass.className,
-          className2: keyClass.className2,
-          className3: keyClass.className3,
-          className4: keyClass.className4,
-        };
-      }
-      return task;
-    });
-    setTreeData(editedTreeData);
 
+    console.log('data1', data1);
+    // console.log('treeData', treeData);
+    
+    const editedTreeData = treeData.map((task) => {
+      // console.log('task', task);
+      if(!data1.parentNode){
+        if (data1.node.id === task.id) {
+        // console.log('true');
+        
+          const keyClass = sortClass(key)
+          return { ...task, 
+            name: keyClass.name,
+            className: keyClass.className,
+            className2: keyClass.className2,
+            className3: keyClass.className3,
+            className4: keyClass.className4, 
+          };
+        
+        }
+
+    }  else {
+      
+      return task; 
+      // if(task.children){
+      //   return defiData(task.children, data1.node.id, sortClass(key));
+      // }
+    }
+      return task;
+    
+    });
+    console.log('treeData', treeData);
+    console.log('editedTreeData', editedTreeData);
+    setTreeData(editedTreeData);
     handleNewTask.handleAddNewTask(editedTreeData, handleNewTask.task_key);
+  }
+
+  function defiData(defiDatas, noteID, noteUpdate)  {
+    if(defiDatas) {
+      
+      
+      const dataReturn = defiDatas.map((defiDataValue) => {
+        if(noteID !== defiDataValue.id) {
+          return defiData(defiDataValue, noteID, noteUpdate );
+        } else {
+          console.log('defiDataValue');
+
+          return { ...defiDataValue, 
+            name: noteUpdate.name,
+            className: noteUpdate.className,
+            className2: noteUpdate.className2,
+            className3: noteUpdate.className3,
+            className4: noteUpdate.className4,
+          };
+        }
+         return defiDataValue;
+      });
+      return dataReturn;
+    } else {
+      return defiDatas;
+    } 
   }
 
   function sortClass(className){
@@ -161,6 +202,7 @@ function Tree(props) {
   };
 
   function createNode(props) {
+    
     const value = inputEl.current.value;
 
     if (value === "") {
@@ -174,7 +216,7 @@ function Tree(props) {
       expandParent: true,
       getNodeKey,
       newNode: {
-        id: "123",
+        id: treeData.length + 1,
         title: value,
         name: "task_grey",
         className: "task_grey",
@@ -182,10 +224,10 @@ function Tree(props) {
         className3: "task_note",
         className4: "task_waiting",
       },
-      // className: 'task-grey'
+      
     });
 
-    // handleAddNewTask('test123');
+
     handleNewTask.handleAddNewTask(newTree.treeData, handleNewTask.task_key);
     setTreeData(newTree.treeData);
 
@@ -212,9 +254,9 @@ function Tree(props) {
         title: value,
       },
     });
-
+    handleNewTask.handleAddNewTask(newTree.treeData, handleNewTask.task_key);
     setTreeData(newTree);
-
+   
     inputEl.current.value = "";
   }
 
@@ -236,7 +278,7 @@ function Tree(props) {
       expandParent: true,
       getNodeKey,
       newNode: {
-        title: value,
+        title: value, 
       },
     });
 
@@ -288,6 +330,8 @@ function Tree(props) {
 
   function updateTreeData(treeData) {
     setTreeData(treeData);
+    handleNewTask.handleAddNewTask(treeData, handleNewTask.task_key);
+    console.log('newTree update drap', treeData); 
   }
 
   function expand(expanded) {
@@ -491,13 +535,12 @@ function Tree(props) {
                       onClick={() => handleChangeStatus(rowInfo, rowInfo.node.className2)}
                       className={rowInfo.node.className2}
                       style={{ "--i": 1 }}
-                      data-value={rowInfo.node.className2}
+                     
                     >
                       <MdAccountCircle />
                     </li>
                     <li
                       onClick={() => handleChangeStatus(rowInfo, rowInfo.node.className3)}
-                      dataNote={rowInfo.node}
                       className={rowInfo.node.className3}
                       style={{ "--i": 2 }}
                     >
