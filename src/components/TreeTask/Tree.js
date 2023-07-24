@@ -88,13 +88,13 @@ function Tree(props) {
   function handleChangeStatus (data1, key) {
 
     console.log('data1', data1);
-    // console.log('treeData', treeData);
+  
     
     const editedTreeData = treeData.map((task) => {
-      // console.log('task', task);
+     
       if(!data1.parentNode){
         if (data1.node.id === task.id) {
-        // console.log('true');
+      
         
           const keyClass = sortClass(key)
           return { ...task, 
@@ -109,16 +109,16 @@ function Tree(props) {
 
     }  else {
       
-      return task; 
+      return task;  
       // if(task.children){
-      //   return defiData(task.children, data1.node.id, sortClass(key));
+        // return defiData(task.children, data1.node.id, sortClass(key));
       // }
     }
       return task;
     
     });
     console.log('treeData', treeData);
-    console.log('editedTreeData', editedTreeData);
+    console.log('editedTreeData 123', editedTreeData);
     setTreeData(editedTreeData);
     handleNewTask.handleAddNewTask(editedTreeData, handleNewTask.task_key);
   }
@@ -140,8 +140,9 @@ function Tree(props) {
             className3: noteUpdate.className3,
             className4: noteUpdate.className4,
           };
+          return defiDataValue;
         }
-         return defiDataValue;
+         
       });
       return dataReturn;
     } else {
@@ -151,7 +152,7 @@ function Tree(props) {
 
   function sortClass(className){
 
-    switch(className) {
+    switch(className) { 
       case 'task_done':
           return {
             name: 'task_done',
@@ -190,7 +191,7 @@ function Tree(props) {
   }
   
   function updateStateTreeData (data1)  {
-    const editedTreeData = treeData.map((task) => {
+    const editedTreeData = treeData.map((task) => { 
       // if this task has the same ID as the edited task
       if (data1.node.id === task.id) {
         //
@@ -331,7 +332,7 @@ function Tree(props) {
   function updateTreeData(treeData) {
     setTreeData(treeData);
     handleNewTask.handleAddNewTask(treeData, handleNewTask.task_key);
-    console.log('newTree update drap', treeData); 
+    console.log('newTree update drap 123', treeData); 
   }
 
   function expand(expanded) {
@@ -348,7 +349,7 @@ function Tree(props) {
   }
 
   function collapseAll() {
-    expand(false);
+    expand(false); 
   }
 
   const alertNodeInfo = ({ node, path, treeIndex }) => {

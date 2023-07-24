@@ -26,23 +26,21 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
+ 
 export default function UserAddNew(props) {
   const [open, setOpen] = React.useState(false);
   const [addUser, setaddUser] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [checked, setChecked] = React.useState([]);
+  const [checked, setChecked] = React.useState(props.dataUserChecked);
   const [ListUser, setListUser] = React.useState([1, 2, 3,4,5,6]);
   const [ListUser1, setListUser1] = React.useState(props.dataUser);
-
-
 
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
     var taskSave = '';
-    console.log('value: ', value)
+    console.log('currentIndex: ', currentIndex)
     if (currentIndex === -1) {
   
       newChecked.push(value);
@@ -50,9 +48,9 @@ export default function UserAddNew(props) {
     } else {
       newChecked.splice(currentIndex, 1);
      
-      taskSave = deleteById(value + 10);
+      taskSave = deleteById(value);
     }
-    
+    console.log('taskSave: ', taskSave)
     setChecked(newChecked);
     setListUser1(taskSave); 
 
@@ -60,33 +58,69 @@ export default function UserAddNew(props) {
 
   const deleteById = id => {
     const newListUser1 = [...ListUser1];
-    const newListUser2 = oldValues => {
-      return oldValues.filter(newListUser1 => newListUser1.id !== id)
+    // const newListUser2 = oldValues => {
+    //   return oldValues.filter(newListUser1 => newListUser1.id !== id)
+    // }
+    // return newListUser2;
+
+    if(id){
+      const newListUser2 = newListUser1.map((newListUserValue) => {
+        if(id === newListUserValue.id) {
+
+          return { ...newListUserValue, 
+            status: 'no',
+          };
+        
+        }
+        return newListUserValue;
+        
+      });
+      return newListUser2;
+
     }
-    return newListUser2;
   }
 
+  
+
   const handleAddUser = (userid) => {
-    const newListUser1 = [...ListUser1]
-    let addUser = {
-        id: userid + 10,
-        name: "John Doe " + userid + 10,
-        email: "johndoe@gmail.com",
-        phone: "313-313-3130",
-        role: "Buyer 1",
-        role_key: "buyer_1",
-        type: "B1",
-        status: "yes"
+    const newListUser1 = [...ListUser1];
+    console.log('newListUser1', newListUser1);
+  
+    // let addUser = {
+    //   id: userid + 10,
+    //   name: "John Doe " + userid + 10,
+    //   email: "johndoe@gmail.com",
+    //   phone: "313-313-3130",
+    //   role: "Buyer 1",
+    //   role_key: "buyer_1",
+    //   type: "B1",
+    //   status: "yes"
+      
+    // }
+    // newListUser1.push(addUser);
+    // return newListUser1;
+
+    if(userid){
+      const dataReturn = newListUser1.map((newListUserValue) => {
+        if(userid === newListUserValue.id) {
+
+          return { ...newListUserValue, 
+            status: 'yes',
+          };
         
-      }
-      newListUser1.push(addUser);
-      return newListUser1;
+        }
+        return newListUserValue;
+        
+      });
+      return dataReturn;
+
+    }
       
 
   }
 
   const handleSave = () => {
-    props.handleAddNewUser( ListUser1);
+    props.handleAddNewUser( ListUser1, checked);
     handleClose();
   }
 
@@ -111,16 +145,17 @@ export default function UserAddNew(props) {
               dense
               sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
             >
-              {ListUser.map((value) => {
-                const labelId = `checkbox-list-secondary-label-${value}`;
+              {ListUser1.map((value) => {
+                const labelId = `checkbox-list-secondary-label-${value.id}`;
+                
                 return (
                   <ListItem
-                    key={value}
+                    key={value.id}
                     secondaryAction={
                       <Checkbox
                         edge="end"
-                        onChange={handleToggle(value)}
-                        checked={checked.indexOf(value) !== -1}
+                        onChange={handleToggle(value.id)}
+                        checked={checked.indexOf(value.id) !== -1 }
                         inputProps={{ "aria-labelledby": labelId }}
                       />
                     }
@@ -129,13 +164,13 @@ export default function UserAddNew(props) {
                     <ListItemButton>
                       <ListItemAvatar>
                         <Avatar
-                          alt={`Avatar n°${value + 1}`}
-                          src={`/static/images/avatar/${value + 1}.jpg`}
+                          alt={`Avatar n°${value.id + 1}`}
+                          src={`/static/images/avatar/${value.id + 1}.jpg`}
                         />
                       </ListItemAvatar>
                       <ListItemText
                         id={labelId}
-                        primary={`User ${value + 1}`}
+                        primary={`${value.name}`}
                       />
                     </ListItemButton>
                   </ListItem>
