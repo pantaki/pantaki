@@ -12,7 +12,7 @@ class App extends React.Component {
     this.setState((prevState) => ({ disabled: !prevState.disabled }));
 
   render() {
-    return;
+    return(
     <div>
       <Draggable disabled={this.state.disabled} bounds="parent">
         <div className={!this.state.disabled ? "draggable" : null}>
@@ -81,7 +81,7 @@ class App extends React.Component {
           </div>
         </div>
       </Draggable>
-    </div>;
+    </div>)
   }
 }
 

@@ -965,7 +965,7 @@ export default class User extends React.Component {
     const { shouldCopyOnOutsideDrop } = this.state;
 
     const handleChange =
-      (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => { 
         this.setState({ expanded: isExpanded ? panel : false });
       };
 

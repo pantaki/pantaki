@@ -86,39 +86,66 @@ function Tree(props) {
     handleClose();
   }
   function handleChangeStatus (data1, key) {
-    const keyClass = sortClass(key)
-    const editedTreeData = updateStatusNode(data1, keyClass)
 
+    console.log('data1', data1);
+    let newChildren = '';
+    const editedTreeData = treeData.map((task) => {
+    
+      if(!data1.parentNode){
+        if (data1.node.id === task.id) {
+      
+          const keyClass = sortClass(key)
+          return { ...task, 
+            name: keyClass.name,
+            className: keyClass.className,
+            className2: keyClass.className2,
+            className3: keyClass.className3,
+            className4: keyClass.className4, 
+          };
+        
+        }
+
+      }  else {
+        
+        // return task;  
+        if(task.children){
+          console.log('task children', task);
+          
+          return {...task, children: [ defiData(task.children, data1.node.id, sortClass(key))]}
+       
+          
+        }
+        // return task
+      }
+      return task;
+    
+    });
     console.log('treeData', treeData);
- 
+    console.log('editedTreeData 123', editedTreeData);
     setTreeData(editedTreeData);
     handleNewTask.handleAddNewTask(editedTreeData, handleNewTask.task_key);
   }
 
-  function updateStatusNode(rowInfo, dataUpdate){
-    const { node, path } = rowInfo;
-    const { children } = node;
+  function defiData(defiDatas, noteID, noteUpdate)  {
+    console.log('task defiDatas', defiDatas);
+    
+      if(noteID === defiDatas[0].id) {
+      
+        return { ...defiDatas[0], 
+          name: noteUpdate.name,
+          className: noteUpdate.className,
+          className2: noteUpdate.className2,
+          className3: noteUpdate.className3,
+          className4: noteUpdate.className4,
+        };
+        
+      } 
+  
+      else {
 
-    let newTree = changeNodeAtPath({
-      treeData,
-      path,
-      getNodeKey,
-      newNode: {
-        id: node.id,
-        title: node.title,
-        text: node.title,
-        children,
-        name: dataUpdate.name,
-        className: dataUpdate.className,
-        className2: dataUpdate.className2,
-        className3: dataUpdate.className3,
-        className4: dataUpdate.className4, 
-      },
-    });
+        return defiData(defiDatas.children, noteID, noteUpdate)
+      }
 
-    return newTree;
-    // handleNewTask.handleAddNewTask(newTree.treeData, handleNewTask.task_key);
-    // setTreeData(newTree);
   }
 
   function sortClass(className){
@@ -303,7 +330,7 @@ function Tree(props) {
   function updateTreeData(treeData) {
     setTreeData(treeData);
     handleNewTask.handleAddNewTask(treeData, handleNewTask.task_key);
-    
+    console.log('newTree update drap 123', treeData); 
   }
 
   function expand(expanded) {
