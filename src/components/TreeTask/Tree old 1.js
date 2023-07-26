@@ -15,8 +15,6 @@ import UpgradeIcon from "@mui/icons-material/Upgrade";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import Radio from '@mui/material/Radio';
-// import Textarea from '@mui/joy/Textarea';
 // import CustomTheme from 'react-sortable-tree-theme-minimal';
 
 import Box from "@mui/material/Box";
@@ -32,6 +30,33 @@ import {
   MdFlutterDash,
 } from "react-icons/md";
 
+const seed = [
+  {
+    id: "123",
+    title: "Task1",
+    subtitle: "lorem ipsum",
+    isDirectory: true,
+    expanded: true,
+    children: [
+      { id: "456", title: "Task1 1", subtitle: "lorem ipsum" },
+      {
+        id: "789",
+        title: "Task1 2",
+        subtitle: "lorem",
+        expanded: true,
+        children: [
+          {
+            id: "234",
+            title: "Task1 2 1",
+            subtitle: "ipsum",
+          },
+          { id: "567", title: "Task1 2 2", subtitle: "zzz" },
+        ],
+      },
+    ],
+  },
+];
+
 function Tree(props) {
   const [searchString, setSearchString] = useState("");
   const [searchFocusIndex, setSearchFocusIndex] = useState(0);
@@ -39,18 +64,14 @@ function Tree(props) {
   const [editTask, setEditTask] = useState(null);
   const [treeData, setTreeData] = useState(props.data);
   const inputEl = useRef();
-  
   const handleNewTask = props;
   const [open, setOpen] = React.useState(false);
   const [openEdit, setOpenEdit] = React.useState(false);
   const [noteStatus, setNoteStatus] = React.useState(["task_waiting"]);
-  const [selectedValue, setSelectedValue] = React.useState('a');
-  const [inputEditTask, setInputEditTask] = React.useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleOpenEdit = () => setOpenEdit(true);
   const handleCloseEdit = () => setOpenEdit(false);
- 
 
   const style = {
     position: "absolute",
@@ -76,25 +97,11 @@ function Tree(props) {
     p: 4,
     backgroundColor: "#fff5c7",
   };
-
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-
-  const controlProps = (item: string) => ({
-    checked: selectedValue === item,
-    onChange: handleChange,
-    value: item,
-    name: 'color-radio-button-demo',
-    inputProps: { 'aria-label': item },
-  });
-
   function handleReply() {
     // setNoteStatus();
     handleClose();
   }
   function handleReplyEdit() {
-    console.log(inputEditTask);
     // setNoteStatus();
     handleCloseEdit();
   }
@@ -364,9 +371,75 @@ function Tree(props) {
     this.props.handleAddNewTask();
   };
 
+  function getInfoComment(info) {
+  
+ 
+
+    if (info.node.name === "task_note") {
+      return
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              07/19/2023: Taki Note1:
+              {info.node.name}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+            </Typography>
+            <div className="button-modal">
+              <Button variant="contained" onClick={handleReply}>
+                + Reply
+              </Button>
+              <div className="status-note-status">
+                {noteStatus == "task_waiting" && (
+                  <p>
+                    <span className="status-note-status"></span>I read this
+                    comment
+                  </p>
+                )}
+              </div>
+            </div>
+          </Box>
+        </Modal>
+     
+    }
+    
+    // setEditTask(editTaskNew);
+    handleOpen();
+    // return editTaskNew;
+  }
+
   return (
     <div>
-    
+      {/* <div style={{ flex: "0 0 auto", padding: "0 15px" }}> */}
+      {/* <h3>Test Task Drag New</h3> */}
+      {/* <input ref={inputEl} type="text" /> */}
+      {/* <TextField ref={inputEl} style={{margin: '10px 0'}}  id="value-add" label="Value" variant="standard" /> */}
+      {/* <br /> */}
+      {/* <Button style={{ margin: "10px" }} variant="outlined" onClick={createNode}><LibraryAddIcon />  Task</Button> */}
+      {/* <br /> */}
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={expandAll}><ExpandMoreIcon /> </Button> */}
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" onClick={collapseAll}><ExpandLessIcon /></Button> */}
+      {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+      {/* <form style={{ display: "inline-block" }} onSubmit={(event) => { event.preventDefault(); }} > */}
+      {/* <label htmlFor="find-box"> */}
+
+      {/* <TextField label="Search" variant="standard" id="find-box" value={searchString} onChange={(event) => setSearchString(event.target.value)} /> */}
+      {/* </label> */}
+
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="button" disabled={!searchFoundCount} onClick={selectPrevMatch} > &lt; </Button> */}
+
+      {/* <Button style={{ marginRight: "10px" }} variant="outlined" type="submit" disabled={!searchFoundCount} onClick={selectNextMatch} > &gt; </Button> */}
+
+      {/* <span> &nbsp; {searchFoundCount > 0 ? searchFocusIndex + 1 : 0} &nbsp;/&nbsp; {searchFoundCount || 0} </span> */}
+      {/* </form> */}
+      {/* </div> */}
+
       {props.type == "showfull" && (
         <div className="content-task-node">
           <div style={{ height: "50vh" }}>
@@ -457,7 +530,7 @@ function Tree(props) {
                   </div>
                 ),
                 (
-                  <div className="note-subtitle-edit-task">
+                  <div className="note-subtitle">
                     {/* <p>' rowInfo.node.subTitle'</p> */}
 
                     <span
@@ -488,76 +561,13 @@ function Tree(props) {
                         <div className="edit-task-status">
                           {noteStatus == "task_waiting" && (
                             <div className="edit-task-main">
-                              <div className="edit-task-item">
-                              <span className="edit-note-status edit-task_grey"></span>
-                                <Radio
-                                  {...controlProps('a')}
-                                  sx={{
-                                    color: '#ababab',
-                                    '&.Mui-checked': {
-                                      color: '#ababab',
-                                    },
-                                  }}
-                                />  Not Done
-                              </div>
-                              <div className="edit-task-item">
-                              <span className="edit-note-status edit-task_done"></span>
-                                <Radio
-                                // disabled
-                                  {...controlProps('b')}
-                                  sx={{
-                                    color: '#01b10a',
-                                    '&.Mui-checked': {
-                                      color: '#01b10a',
-                                    },
-                                  }}
-                                />
-                              </div>
-                              <div className="edit-task-item">
-                              <span className="edit-note-status edit-task_donena">x</span>
-                                <Radio
-                                  {...controlProps('c')}
-                                  sx={{
-                                    color: '#01b10a',
-                                    '&.Mui-checked': {
-                                      color: '#01b10a',
-                                    },
-                                  }}
-                                />  Done NA
-                              </div>
-                              <div className="edit-task-item">
-                              <span className="edit-note-status edit-task_waiting"></span>
-                                <Radio
-                                  {...controlProps('d')}
-                                  sx={{
-                                    color: '#f5c916',
-                                    '&.Mui-checked': {
-                                      color: '#f5c916',
-                                    },
-                                  }}
-                                />  Wait for
-                              </div>
-
-                              {/* <div className="edit-task-item"><span className="edit-note-status edit-task_grey"></span>Not Done</div>
+                              <div className="edit-task-item"><span className="edit-note-status edit-task_grey"></span>Not Done</div>
                               <div className="edit-task-item"><span className="edit-note-status edit-task_done"></span></div>
                               <div className="edit-task-item"><span className="edit-note-status edit-task_donena">x</span>Done NA</div>
-                              <div className="edit-task-item"><span className="edit-note-status edit-task_waiting"></span>Wait for</div> */}
+                              <div className="edit-task-item"><span className="edit-note-status edit-task_waiting"></span>Wait for</div>
                             </div>
                             
                           )}
-                        </div>
-                        <div className="edit-task-field">
-                          {/* <input ref={inputEditTask} type="text" /> */}
-                          {/* <Textarea placeholder="Type anything…" />; */}
-                          <TextField
-                            id="outlined-multiline-static"
-                            label="Type node here"
-                            multiline
-                            rows={4}
-                            onChange={(v) => setInputEditTask(v.target.value) }
-                            
-                            defaultValue=" "
-                          />
                         </div>
                         <div className="button-modal">
                           <Button variant="contained" onClick={handleReplyEdit}>

@@ -964,10 +964,10 @@ export default class User extends React.Component {
     const externalNodeType = "yourNodeType";
     const { shouldCopyOnOutsideDrop } = this.state;
 
-    const handleChange =
-      (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => { 
-        this.setState({ expanded: isExpanded ? panel : false });
-      };
+    // const handleChange =
+    //   (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => { 
+    //     this.setState({ expanded: isExpanded ? panel : false });
+    //   };
 
     return (
       <div className="user-container">
@@ -1111,43 +1111,44 @@ export default class User extends React.Component {
                                          
 
                                           return (
-                                            // <TaskBoxTop task_data={task_item1} />
-                                            <div className="user-effects">
-                                              <ul>
-                                                <li
-                                                  className={
-                                                    task_item1.className2
-                                                  }
-                                                  style={{ "--i": 1 }}
-                                                >
-                                                  <MdAccountCircle />
-                                                </li>
-                                                <li
-                                                  className={
-                                                    task_item1.className3
-                                                  }
-                                                  style={{ "--i": 2 }}
-                                                >
-                                                  <MdCalendarMonth />
-                                                </li>
-                                                <li
-                                                  className={
-                                                    task_item1.className4
-                                                  }
-                                                  style={{ "--i": 3 }}
-                                                >
-                                                  <MdAndroid />
-                                                </li>
-                                                <li
-                                                  className={
-                                                    task_item1.className
-                                                  }
-                                                  style={{ "--i": 4 }}
-                                                >
-                                                  {/* <MdSettings /> */}
-                                                </li>
-                                              </ul>
-                                            </div>
+                                            <TaskBoxTop task_data={task_item1} />
+                                            
+                                            // <div className="user-effects">
+                                            //   <ul>
+                                            //     <li
+                                            //       className={
+                                            //         task_item1.className2
+                                            //       }
+                                            //       style={{ "--i": 1 }}
+                                            //     >
+                                            //       <MdAccountCircle />
+                                            //     </li>
+                                            //     <li
+                                            //       className={
+                                            //         task_item1.className3
+                                            //       }
+                                            //       style={{ "--i": 2 }}
+                                            //     >
+                                            //       <MdCalendarMonth />
+                                            //     </li>
+                                            //     <li
+                                            //       className={
+                                            //         task_item1.className4
+                                            //       }
+                                            //       style={{ "--i": 3 }}
+                                            //     >
+                                            //       <MdAndroid />
+                                            //     </li>
+                                            //     <li
+                                            //       className={
+                                            //         task_item1.className
+                                            //       }
+                                            //       style={{ "--i": 4 }}
+                                            //     >
+                                            //       {/* <MdSettings /> */}
+                                            //     </li>
+                                            //   </ul>
+                                            // </div>
 
                                             // <div className='item-task' >
                                             //   <span className={task_item1.name}></span>
@@ -1308,35 +1309,35 @@ export default class User extends React.Component {
                                       //   task_item1.children
                                       // );
                                       return (
-                                        // <TaskBoxTop task_data={task_item1} />
-                                        <div className="user-effects">
-                                          <ul>
-                                            <li
-                                              className={task_item1.className2}
-                                              style={{ "--i": 1 }}
-                                            >
-                                              <MdAccountCircle />
-                                            </li>
-                                            <li
-                                              className={task_item1.className3}
-                                              style={{ "--i": 2 }}
-                                            >
-                                              <MdCalendarMonth />
-                                            </li>
-                                            <li
-                                              className={task_item1.className4}
-                                              style={{ "--i": 3 }}
-                                            >
-                                              <MdAndroid />
-                                            </li>
-                                            <li
-                                              className={task_item1.className}
-                                              style={{ "--i": 4 }}
-                                            >
-                                              {/* <MdSettings /> */}
-                                            </li>
-                                          </ul>
-                                        </div>
+                                        <TaskBoxTop task_data={task_item1} />
+                                        // <div className="user-effects">
+                                        //   <ul>
+                                        //     <li
+                                        //       className={task_item1.className2}
+                                        //       style={{ "--i": 1 }}
+                                        //     >
+                                        //       <MdAccountCircle />
+                                        //     </li>
+                                        //     <li
+                                        //       className={task_item1.className3}
+                                        //       style={{ "--i": 2 }}
+                                        //     >
+                                        //       <MdCalendarMonth />
+                                        //     </li>
+                                        //     <li
+                                        //       className={task_item1.className4}
+                                        //       style={{ "--i": 3 }}
+                                        //     >
+                                        //       <MdAndroid />
+                                        //     </li>
+                                        //     <li
+                                        //       className={task_item1.className}
+                                        //       style={{ "--i": 4 }}
+                                        //     >
+                                        //       {/* <MdSettings /> */}
+                                        //     </li>
+                                        //   </ul>
+                                        // </div>
                                       );
                                     }
                                   )}

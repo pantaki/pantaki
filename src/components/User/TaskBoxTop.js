@@ -4,79 +4,66 @@ import PropTypes from "prop-types";
 
 // @material-ui/core components
 import {
-    MdSettings,
-    MdAccountCircle,
-    MdCalendarMonth,
-    MdAndroid,
-    MdFlutterDash,
-  } from "react-icons/md";
+  MdSettings,
+  MdAccountCircle,
+  MdCalendarMonth,
+  MdAndroid,
+  MdFlutterDash,
+} from "react-icons/md";
 
 export default function TaskBoxTop(props) {
-    console.log('props ', props)
-    
-    const [taskData, settaskData] = useState(props.task_data); 
-    function getChildren(dataChildren){
-        let children = '';
-        let childrenShow = '';
-        if(!dataChildren.children){
-            return show_html(dataChildren)
-        } else {
-            return dataChildren.children.map((childrenS) => {
-                children += show_html(childrenS.children);
+  console.log("props ", props);
+  let childrenShow = [];
+  const [taskData, settaskData] = useState(props.task_data);
+ 
+  let dataTop = props.task_data;
+  function getChildren(dataChildren, childrenShow) {
 
-                if(childrenS.children){        
-                    children += getChildren(childrenS.children);
-                } 
-
-                return children;
-              
-            });
-            
-        }  
-        return children;
-    }
+    let children = "";
+    let children1 = "";
     
-    function show_html(taskNote){
-        console.log("taskNote: ", taskNote);
-        return (
-            <div className="user-effects">
+    childrenShow.push(show_html(dataChildren));
+   
+    if(dataChildren.children) {
+        dataChildren.children.map((childrenS) => {
+            if(childrenS)
+            children1 = childrenS
+            getChildren(children1, childrenShow)
+        })
+  
+        
+    } 
+    
+    // childrenShow.join('')
+    console.log('childrenShow ', childrenShow)
+    children = childrenShow;
+    childrenShow = [];
+    return children;
+  }
+
+  function show_html(htmlData) {
+    let taskNote = '';
+    taskNote = htmlData;
+
+    return htmlData != '' && (
+      <div className="user-effects">
         <ul>
-        <li
-            className={
-                taskNote.className2
-            }
-            style={{ "--i": 1 }}
-        >
+          <li className={taskNote.className2} style={{ "--i": 1 }}>
             <MdAccountCircle />
-        </li>
-        <li
-            className={
-                taskNote.className3
-            }
-            style={{ "--i": 2 }}
-        >
+          </li>
+          <li className={taskNote.className3} style={{ "--i": 2 }}>
             <MdCalendarMonth />
-        </li>
-        <li
-            className={
-                taskNote.className4
-            }
-            style={{ "--i": 3 }}
-        >
+          </li>
+          <li className={taskNote.className4} style={{ "--i": 3 }}>
             <MdAndroid />
-        </li>
-        <li
-            className={
-                taskNote.className
-            }
-            style={{ "--i": 4 }}
-        >
+          </li>
+          <li className={taskNote.className} style={{ "--i": 4 }}>
             {/* <MdSettings /> */}
-        </li>
+          </li>
         </ul>
-    </div>
-        );
-    }
+      </div>
+    );
+  }
 
-    return getChildren(taskData);
+  return getChildren(dataTop, childrenShow);
 }
