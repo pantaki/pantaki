@@ -44,13 +44,18 @@ function Tree(props) {
   const [open, setOpen] = React.useState(false);
   const [openEdit, setOpenEdit] = React.useState(false);
   const [noteStatus, setNoteStatus] = React.useState(["task_waiting"]);
-  const [selectedValue, setSelectedValue] = React.useState('a');
+  const [selectedValue, setSelectedValue] = React.useState();
   const [inputEditTask, setInputEditTask] = React.useState('');
+  const [dataRowInfo, setDataRowInfo] = React.useState('');
+  const [colorCurrent, setColorCurrent] = React.useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleOpenEdit = () => setOpenEdit(true);
   const handleCloseEdit = () => setOpenEdit(false);
- 
+  const handleOpenEdit = (rowInfo) => {
+    
+    setDataRowInfo(rowInfo)
+    setOpenEdit(true)
+  };
 
   const style = {
     position: "absolute",
@@ -94,16 +99,21 @@ function Tree(props) {
     handleClose();
   }
   function handleReplyEdit() {
-    console.log(inputEditTask);
-    // setNoteStatus();
+    console.log('rowInfo open popup: ', selectedValue)
+    console.log('rowInfo open popup: ', dataRowInfo)
+    setInputEditTask(inputEditTask);
+    
+    let keyClass1 = sortClass(selectedValue);
+    let editedTreeData = updateStatusNode(dataRowInfo, keyClass1);
+    setTreeData(editedTreeData);
+    handleNewTask.handleAddNewTask(editedTreeData, handleNewTask.task_key);
+
     handleCloseEdit();
   }
   function handleChangeStatus(data1, key) {
+    setSelectedValue(key);
     const keyClass = sortClass(key);
     const editedTreeData = updateStatusNode(data1, keyClass);
-
-    console.log("treeData", treeData);
-
     setTreeData(editedTreeData);
     handleNewTask.handleAddNewTask(editedTreeData, handleNewTask.task_key);
   }
@@ -437,7 +447,7 @@ function Tree(props) {
                           
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                          lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                          {inputEditTask}
                         </Typography>
                         <div className="button-modal">
                           <Button variant="contained" onClick={handleReply}>
@@ -462,7 +472,7 @@ function Tree(props) {
 
                     <span
                       className="note-change-status"
-                      onClick={handleOpenEdit}
+                      onClick={() => handleOpenEdit(rowInfo)}
                     >
                       Edit Task
                     </span>
@@ -491,7 +501,10 @@ function Tree(props) {
                               <div className="edit-task-item">
                               <span className="edit-note-status edit-task_grey"></span>
                                 <Radio
-                                  {...controlProps('a')}
+                                  {...selectedValue === 'task_grey'
+                                  ? 'disabled' : ''}
+                                
+                                  {...controlProps('task_grey')}
                                   sx={{
                                     color: '#ababab',
                                     '&.Mui-checked': {
@@ -503,8 +516,10 @@ function Tree(props) {
                               <div className="edit-task-item">
                               <span className="edit-note-status edit-task_done"></span>
                                 <Radio
-                                // disabled
-                                  {...controlProps('b')}
+                                
+                                  {...selectedValue === 'task_done'
+                                  ? 'disabled' : ''}
+                                  {...controlProps('task_done')}
                                   sx={{
                                     color: '#01b10a',
                                     '&.Mui-checked': {
@@ -516,7 +531,8 @@ function Tree(props) {
                               <div className="edit-task-item">
                               <span className="edit-note-status edit-task_donena">x</span>
                                 <Radio
-                                  {...controlProps('c')}
+                                disabled
+                                  {...controlProps('task_donena')}
                                   sx={{
                                     color: '#01b10a',
                                     '&.Mui-checked': {
@@ -528,7 +544,7 @@ function Tree(props) {
                               <div className="edit-task-item">
                               <span className="edit-note-status edit-task_waiting"></span>
                                 <Radio
-                                  {...controlProps('d')}
+                                  {...controlProps('task_waiting')}
                                   sx={{
                                     color: '#f5c916',
                                     '&.Mui-checked': {
@@ -536,6 +552,18 @@ function Tree(props) {
                                     },
                                   }}
                                 />  Wait for
+                              </div>
+                              <div className="edit-task-item">
+                                <span className="edit-note-status edit-task_note"></span>
+                                  <Radio
+                                    {...controlProps('task_note')}
+                                    sx={{
+                                      color: '#d10101',
+                                      '&.Mui-checked': {
+                                        color: '#d10101',
+                                      },
+                                    }}
+                                  />  Note for
                               </div>
 
                               {/* <div className="edit-task-item"><span className="edit-note-status edit-task_grey"></span>Not Done</div>
@@ -551,12 +579,11 @@ function Tree(props) {
                           {/* <Textarea placeholder="Type anything…" />; */}
                           <TextField
                             id="outlined-multiline-static"
-                            label="Type node here"
+                            label="Type note here"
                             multiline
                             rows={4}
                             onChange={(v) => setInputEditTask(v.target.value) }
-                            
-                            defaultValue=" "
+                            defaultValue={inputEditTask}
                           />
                         </div>
                         <div className="button-modal">

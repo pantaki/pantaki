@@ -35,7 +35,7 @@ export default function TaskBoxTop(props) {
     } 
     
     // childrenShow.join('')
-    console.log('childrenShow ', childrenShow)
+
     children = childrenShow;
     childrenShow = [];
     return children;

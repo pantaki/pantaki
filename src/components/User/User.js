@@ -1304,40 +1304,10 @@ export default class User extends React.Component {
                                   {/* <span className='item-task'>{task_card.name}</span> */}
                                   {task_card.task_data.map(
                                     (task_item1, index) => {
-                                      // console.log(
-                                      //   "task_item1.children ",
-                                      //   task_item1.children
-                                      // );
+                                      
                                       return (
                                         <TaskBoxTop task_data={task_item1} />
-                                        // <div className="user-effects">
-                                        //   <ul>
-                                        //     <li
-                                        //       className={task_item1.className2}
-                                        //       style={{ "--i": 1 }}
-                                        //     >
-                                        //       <MdAccountCircle />
-                                        //     </li>
-                                        //     <li
-                                        //       className={task_item1.className3}
-                                        //       style={{ "--i": 2 }}
-                                        //     >
-                                        //       <MdCalendarMonth />
-                                        //     </li>
-                                        //     <li
-                                        //       className={task_item1.className4}
-                                        //       style={{ "--i": 3 }}
-                                        //     >
-                                        //       <MdAndroid />
-                                        //     </li>
-                                        //     <li
-                                        //       className={task_item1.className}
-                                        //       style={{ "--i": 4 }}
-                                        //     >
-                                        //       {/* <MdSettings /> */}
-                                        //     </li>
-                                        //   </ul>
-                                        // </div>
+                                        
                                       );
                                     }
                                   )}
