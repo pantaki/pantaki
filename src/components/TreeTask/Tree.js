@@ -112,6 +112,8 @@ function Tree(props) {
   }
   function handleChangeStatus(data1, key) {
     setSelectedValue(key);
+    console.log('handleChangeStatus data: ', data1)
+    console.log('handleChangeStatus key: ', key)
     const keyClass = sortClass(key);
     const editedTreeData = updateStatusNode(data1, keyClass);
     setTreeData(editedTreeData);
@@ -370,9 +372,6 @@ function Tree(props) {
 
   const getNodeKey = ({ treeIndex }) => treeIndex;
 
-  const handleAddNewTask1 = () => {
-    this.props.handleAddNewTask();
-  };
 
   return (
     <div>

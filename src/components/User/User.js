@@ -883,6 +883,164 @@ export default class User extends React.Component {
         },
       ],
 
+      document_share: [
+        {
+          
+          title: 'KW OFFICE POLICY',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', ''],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {  
+          title: 'bba',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', 's'],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', 's'],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'pa',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', 's'],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', 's'],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'em receipt',
+          b1: ['documents-row-data', ''],
+          b2: ['documents-row-data', ''],
+          la: ['documents-row-data', 's'],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', 's'],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'sd',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', 's'],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'tax sheet',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', 's'],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'blc sheet',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'pre-approval',
+          b1: ['documents-row-data', ''],
+          b2: ['documents-row-data', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'bir',
+          b1: ['documents-row-data green', ''],
+          b2: ['documents-row-data green', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', ''],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'sir',
+          b1: ['documents-row-data yellow', ''],
+          b2: ['documents-row-data yellow', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', 's'],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'amend#1',
+          b1: ['documents-row-data green', 's'],
+          b2: ['documents-row-data green', 's'],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', ''],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'title commit',
+          b1: ['documents-row-data', 's'],
+          b2: ['documents-row-data', 's'],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', ''],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'altass',
+          b1: ['documents-row-data', 's'],
+          b2: ['documents-row-data', 's'],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', ''],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+        {
+          title: 'closing confirm',
+          b1: ['documents-row-data', ''],
+          b2: ['documents-row-data', ''],
+          la: ['documents-row-data', ''],
+          f1: ['documents-row-data', ''],
+          f2: ['documents-row-data', ''],
+          ti: ['documents-row-data', ''],
+          kw: ['documents-row-data', ''],
+          tg: ['documents-row-data', ''],
+        },
+      ],
+
       height: 0,
       height2: 0,
       value: "0",
@@ -953,7 +1111,7 @@ export default class User extends React.Component {
   handleAddNewUser = (dataUser , newChecked) => {
     this.setState({ user_item: dataUser });
     this.setState({ user_checked: newChecked });
-    console.log(newChecked);
+    
   };
 
   render = () => {
@@ -1108,7 +1266,7 @@ export default class User extends React.Component {
                                       {/* <span className='item-task'>{task_card.name}</span> */}
                                       {task_card.task_data.map(
                                         (task_item1, index) => {
-                                         
+                                         console.log('item-card-content full', task_item1)
 
                                           return (
                                             <TaskBoxTop task_data={task_item1} />
@@ -1418,29 +1576,17 @@ export default class User extends React.Component {
                           <div className="documents-toggle-main">
                             <div className="documents-list-left">
                               <h4>Share Selected</h4>
-                              <Form.Check // prettier-ignore
-                                type="checkbox"
-                                id="select-all-checkbox"
-                                label="Select All"
-                              />
 
-                              <Form.Check // prettier-ignore
-                                type="checkbox"
-                                id="kq-office-policy-checkbox"
-                                label="KW Office policy"
-                              />
-                              <Form.Check // prettier-ignore
-                                type="checkbox"
-                                id="baa-checkbox"
-                                label="BAA"
-                              />
+                              {this.state.document_share.map((document) => {
+                                return (
+                                  <Form.Check // prettier-ignore
+                                    type="checkbox"
+                                    id="select-all-checkbox"
+                                    label={document.title}
+                                  />
+                                )
 
-                              <Form.Check
-                                disabled
-                                type="checkbox"
-                                id="disabled-pa-checkbox"
-                                label="PA"
-                              />
+                              })}
 
                               {/* <Form>
                             {['checkbox'].map((type) => (
@@ -1473,7 +1619,25 @@ export default class User extends React.Component {
                                 <span className="documents-row-name">KW</span>
                                 <span className="documents-row-name">TG</span>
                               </div>
-                              <div className="documents-row-content">
+                              {console.log(this.state.document_share)}
+                              {this.state.document_share.map((document) => {
+                                // console.log('this.state.document_share ',document.b1[0]);
+                                return (
+                                  <div className="documents-row-content">
+
+                                    <span className={document.b1[0]}>{document.b1[1]}</span>
+                                    <span className={document.b2[0]}>{document.b2[1]}</span>
+                                    <span className={document.la[0]}>{document.la[1]}</span>
+                                    <span className={document.f1[0]}>{document.f1[1]}</span>
+                                    <span className={document.f2[0]}>{document.f2[1]}</span>
+                                    <span className={document.ti[0]}>{document.ti[1]}</span>
+                                    <span className={document.kw[0]}>{document.kw[1]}</span>
+                                    <span className={document.tg[0]}>{document.tg[1]}</span>
+    
+                                  </div>
+                                )
+                               })} 
+                              {/* <div className="documents-row-content">
                                 <span className="documents-row-data green"></span>
                                 <span className="documents-row-data green"></span>
                                 <span className="documents-row-data"></span>
@@ -1515,6 +1679,27 @@ export default class User extends React.Component {
                                 <span className="documents-row-data"></span>
                                 <span className="documents-row-data"></span>
                               </div>
+                              <div className="documents-row-content">
+                                <span className="documents-row-data green"></span>
+                                <span className="documents-row-data green"></span>
+                                <span className="documents-row-data">S</span>
+                                <span className="documents-row-data">S</span>
+                                <span className="documents-row-data">S</span>
+                                <span className="documents-row-data"></span>
+                                <span className="documents-row-data"></span>
+                                <span className="documents-row-data"></span>
+                              </div>
+                              <div className="documents-row-content">
+                                <span className="documents-row-data"></span>
+                                <span className="documents-row-data"></span>
+                                <span className="documents-row-data">S</span>
+                                <span className="documents-row-data">S</span>
+                                <span className="documents-row-data">S</span>
+                                <span className="documents-row-data"></span>
+                                <span className="documents-row-data"></span>
+                                <span className="documents-row-data"></span>
+                              </div> */}
+                              
                             </div>
                           </div>
                         </AnimateHeight>

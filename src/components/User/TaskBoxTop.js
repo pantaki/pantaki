@@ -12,7 +12,7 @@ import {
 } from "react-icons/md";
 
 export default function TaskBoxTop(props) {
-  console.log("props ", props);
+  
   let childrenShow = [];
   const [taskData, settaskData] = useState(props.task_data);
  
