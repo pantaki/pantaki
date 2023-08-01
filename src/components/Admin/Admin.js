@@ -2475,9 +2475,9 @@ const Admin = (props) => {
 
 
   const updateState = (data, index) => (e) => {
-    console.log("newArray1", data);
+    
     const newArray = taskData.map((item, i) => {
-      console.log("newArray2", item.id);
+      
       if (data === item.id) {
         if (item.span === 4) {
           return { ...item, span: 12, width: "100%", style: "none", style_hide: "block" };
@@ -2492,7 +2492,7 @@ const Admin = (props) => {
     
   };
   return (
-    <div className="container container-lg">
+    <div className="container-xl">
       <div className="admin-page">
         <Box  style={{  transition: "0.5s" }} display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
           {taskData.map((taskData_value, i) => {
